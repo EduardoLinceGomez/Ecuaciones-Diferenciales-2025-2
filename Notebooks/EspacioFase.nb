@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       154,          7]
-NotebookDataLength[    580906,      11273]
-NotebookOptionsPosition[    579436,      11242]
-NotebookOutlinePosition[    579962,      11260]
-CellTagsIndexPosition[    579919,      11257]
+NotebookDataLength[    580494,      11268]
+NotebookOptionsPosition[    579024,      11237]
+NotebookOutlinePosition[    579550,      11255]
+CellTagsIndexPosition[    579507,      11252]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -42,299 +42,297 @@ Cell[BoxData[
 
 Cell[CellGroupData[{
 
-Cell[BoxData[
- RowBox[{
-  RowBox[{"Module", "[", "\n", "  ", 
-   RowBox[{
-    RowBox[{"{", 
-     RowBox[{
-     "f", ",", " ", "yMin", ",", " ", "yMax", ",", " ", "tMax", ",", " ", 
-      "plotYprime", ",", " ", "dirField", ",", " ", "sol", ",", " ", 
-      "solCurve"}], "}"}], ",", "\n", "  ", "\n", "  ", 
-    RowBox[{"(*", " ", 
-     RowBox[{
-      RowBox[{"y", "'"}], " ", "=", " ", 
-      RowBox[{"y", " ", 
-       RowBox[{"(", 
-        RowBox[{"1", "-", "y"}], ")"}], 
-       RowBox[{"(", 
-        RowBox[{"2", "-", "y"}], ")"}]}]}], " ", "*)"}], "\n", "  ", 
+Cell[BoxData[{
+ RowBox[{"ClearAll", "[", "\"\<Global`*\>\"", "]"}], "\n", 
+ RowBox[{"Module", "[", "\n", "  ", 
+  RowBox[{
+   RowBox[{"{", 
     RowBox[{
+    "f", ",", " ", "yMin", ",", " ", "yMax", ",", " ", "tMax", ",", " ", 
+     "plotYprime", ",", " ", "dirField", ",", " ", "sol", ",", " ", 
+     "solCurve"}], "}"}], ",", "\n", "  ", "\n", "  ", 
+   RowBox[{"(*", " ", 
+    RowBox[{
+     RowBox[{"y", "'"}], " ", "=", " ", 
+     RowBox[{"y", " ", 
+      RowBox[{"(", 
+       RowBox[{"1", "-", "y"}], ")"}], 
+      RowBox[{"(", 
+       RowBox[{"2", "-", "y"}], ")"}]}]}], " ", "*)"}], "\n", "  ", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"f", "[", "y_", "]"}], " ", ":=", " ", 
+     RowBox[{"y", " ", 
+      RowBox[{"(", 
+       RowBox[{"1", " ", "-", " ", "y"}], ")"}], " ", 
+      RowBox[{"(", 
+       RowBox[{"2", " ", "-", " ", "y"}], ")"}]}]}], ";", "\n", "  ", "\n", 
+    "  ", 
+    RowBox[{"(*", " ", 
+     RowBox[{"Rango", " ", "para", " ", "y", " ", "y", " ", "t"}], " ", 
+     "*)"}], "\n", "  ", 
+    RowBox[{"yMin", " ", "=", " ", 
+     RowBox[{"-", "1"}]}], ";", " ", 
+    RowBox[{"yMax", " ", "=", " ", "3"}], ";", "\n", "  ", 
+    RowBox[{"tMax", " ", "=", " ", "10"}], ";", "\n", "  ", "\n", "  ", 
+    RowBox[{
+    "(*", "***********************************************************)"}], 
+    "\n", "  ", 
+    RowBox[{"(*", 
      RowBox[{
-      RowBox[{"f", "[", "y_", "]"}], " ", ":=", " ", 
-      RowBox[{"y", " ", 
-       RowBox[{"(", 
-        RowBox[{"1", " ", "-", " ", "y"}], ")"}], " ", 
-       RowBox[{"(", 
-        RowBox[{"2", " ", "-", " ", "y"}], ")"}]}]}], ";", "\n", "  ", "\n", 
-     "  ", 
-     RowBox[{"(*", " ", 
-      RowBox[{"Rango", " ", "para", " ", "y", " ", "y", " ", "t"}], " ", 
-      "*)"}], "\n", "  ", 
-     RowBox[{"yMin", " ", "=", " ", 
-      RowBox[{"-", "1"}]}], ";", " ", 
-     RowBox[{"yMax", " ", "=", " ", "3"}], ";", "\n", "  ", 
-     RowBox[{"tMax", " ", "=", " ", "10"}], ";", "\n", "  ", "\n", "  ", 
-     RowBox[{
-     "(*", "***********************************************************)"}], 
-     "\n", "  ", 
-     RowBox[{"(*", 
       RowBox[{
-       RowBox[{
-        RowBox[{" ", "1", ")"}], " ", "Gra\:0301fica", " ", "de", " ", 
-        RowBox[{"y", "'"}], 
-        RowBox[{"(", "y", ")"}]}], " ", "+", " ", 
-       RowBox[{"Diagrama", " ", "de", " ", "Fases", " ", 
-        RowBox[{"(", "arriba", ")"}]}]}], "         ", "*)"}], "\n", "  ", 
-     RowBox[{
-     "(*", "***********************************************************)"}], 
-     "\n", "  ", 
-     RowBox[{"plotYprime", " ", "=", " ", 
-      RowBox[{"Plot", "[", "\n", "    ", 
-       RowBox[{
-        RowBox[{"f", "[", "y", "]"}], ",", "\n", "    ", 
+       RowBox[{" ", "1", ")"}], " ", "Gra\:0301fica", " ", "de", " ", 
+       RowBox[{"y", "'"}], 
+       RowBox[{"(", "y", ")"}]}], " ", "+", " ", 
+      RowBox[{"Diagrama", " ", "de", " ", "Fases", " ", 
+       RowBox[{"(", "arriba", ")"}]}]}], "         ", "*)"}], "\n", "  ", 
+    RowBox[{
+    "(*", "***********************************************************)"}], 
+    "\n", "  ", 
+    RowBox[{"plotYprime", " ", "=", " ", 
+     RowBox[{"Plot", "[", "\n", "    ", 
+      RowBox[{
+       RowBox[{"f", "[", "y", "]"}], ",", "\n", "    ", 
+       RowBox[{"{", 
+        RowBox[{"y", ",", " ", "yMin", ",", " ", "yMax"}], "}"}], ",", "\n", 
+       "    ", 
+       RowBox[{"AxesLabel", " ", "->", " ", 
         RowBox[{"{", 
-         RowBox[{"y", ",", " ", "yMin", ",", " ", "yMax"}], "}"}], ",", "\n", 
+         RowBox[{"\"\<y\>\"", ",", " ", "\"\<y'\>\""}], "}"}]}], ",", "\n", 
+       "    ", 
+       RowBox[{"PlotLabel", " ", "->", " ", "\"\<Inciso (a)\>\""}], ",", "\n",
         "    ", 
-        RowBox[{"AxesLabel", " ", "->", " ", 
-         RowBox[{"{", 
-          RowBox[{"\"\<y\>\"", ",", " ", "\"\<y'\>\""}], "}"}]}], ",", "\n", 
-        "    ", 
-        RowBox[{
-        "PlotLabel", " ", "->", 
-         " ", "\"\<Inciso (a): y'(y) y diagrama de fases\>\""}], ",", "\n", 
-        "    ", 
-        RowBox[{"PlotRange", " ", "->", " ", 
-         RowBox[{"{", 
+       RowBox[{"PlotRange", " ", "->", " ", 
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"{", 
+           RowBox[{"yMin", ",", " ", "yMax"}], "}"}], ",", " ", "All"}], 
+         "}"}]}], ",", "\n", "    ", 
+       RowBox[{"PlotStyle", " ", "->", " ", "Thick"}], ",", "\n", "    ", 
+       RowBox[{"Epilog", " ", "->", " ", 
+        RowBox[{"{", "\n", "      ", 
+         RowBox[{"(*", " ", 
           RowBox[{
+           RowBox[{"Recta", " ", 
+            RowBox[{"y", "'"}]}], "=", "0"}], " ", "*)"}], "\n", "      ", 
+         RowBox[{"Thick", ",", " ", 
+          RowBox[{"Line", "[", 
            RowBox[{"{", 
-            RowBox[{"yMin", ",", " ", "yMax"}], "}"}], ",", " ", "All"}], 
-          "}"}]}], ",", "\n", "    ", 
-        RowBox[{"PlotStyle", " ", "->", " ", "Thick"}], ",", "\n", "    ", 
-        RowBox[{"Epilog", " ", "->", " ", 
-         RowBox[{"{", "\n", "      ", 
+            RowBox[{
+             RowBox[{"{", 
+              RowBox[{"yMin", ",", " ", "0"}], "}"}], ",", " ", 
+             RowBox[{"{", 
+              RowBox[{"yMax", ",", " ", "0"}], "}"}]}], "}"}], "]"}], ",", 
+          "\n", "      ", "\n", "      ", 
           RowBox[{"(*", " ", 
            RowBox[{
-            RowBox[{"Recta", " ", 
-             RowBox[{"y", "'"}]}], "=", "0"}], " ", "*)"}], "\n", "      ", 
-          RowBox[{"Thick", ",", " ", 
-           RowBox[{"Line", "[", 
-            RowBox[{"{", 
-             RowBox[{
-              RowBox[{"{", 
-               RowBox[{"yMin", ",", " ", "0"}], "}"}], ",", " ", 
-              RowBox[{"{", 
-               RowBox[{"yMax", ",", " ", "0"}], "}"}]}], "}"}], "]"}], ",", 
-           "\n", "      ", "\n", "      ", 
-           RowBox[{"(*", " ", 
             RowBox[{
-             RowBox[{
-              RowBox[{"Equilibrios", " ", "y"}], "=", "0"}], ",", "1", ",", 
-             "2"}], " ", "*)"}], "\n", "      ", 
+             RowBox[{"Equilibrios", " ", "y"}], "=", "0"}], ",", "1", ",", 
+            "2"}], " ", "*)"}], "\n", "      ", 
+          RowBox[{"{", 
+           RowBox[{"Red", ",", " ", 
+            RowBox[{"PointSize", "[", "Large", "]"}], ",", "\n", "       ", 
+            RowBox[{"Point", "[", 
+             RowBox[{"{", 
+              RowBox[{
+               RowBox[{"{", 
+                RowBox[{"0", ",", " ", "0"}], "}"}], ",", " ", 
+               RowBox[{"{", 
+                RowBox[{"1", ",", " ", "0"}], "}"}], ",", " ", 
+               RowBox[{"{", 
+                RowBox[{"2", ",", " ", "0"}], "}"}]}], "}"}], "]"}]}], "}"}], 
+          ",", "\n", "      ", "\n", "      ", 
+          RowBox[{"(*", " ", 
+           RowBox[{"Flechas", " ", "de", " ", "fase"}], " ", "*)"}], "\n", 
+          "      ", 
+          RowBox[{"Arrow", "[", 
            RowBox[{"{", 
-            RowBox[{"Red", ",", " ", 
-             RowBox[{"PointSize", "[", "Large", "]"}], ",", "\n", "       ", 
-             RowBox[{"Point", "[", 
-              RowBox[{"{", 
-               RowBox[{
-                RowBox[{"{", 
-                 RowBox[{"0", ",", " ", "0"}], "}"}], ",", " ", 
-                RowBox[{"{", 
-                 RowBox[{"1", ",", " ", "0"}], "}"}], ",", " ", 
-                RowBox[{"{", 
-                 RowBox[{"2", ",", " ", "0"}], "}"}]}], "}"}], "]"}]}], "}"}],
-            ",", "\n", "      ", "\n", "      ", 
-           RowBox[{"(*", " ", 
-            RowBox[{"Flechas", " ", "de", " ", "fase"}], " ", "*)"}], "\n", 
-           "      ", 
-           RowBox[{"Arrow", "[", 
-            RowBox[{"{", 
-             RowBox[{
-              RowBox[{"{", 
-               RowBox[{
-                RowBox[{"-", "0.8"}], ",", " ", "0"}], "}"}], ",", " ", 
-              RowBox[{"{", 
-               RowBox[{
-                RowBox[{"-", "0.6"}], ",", " ", "0"}], "}"}]}], "}"}], "]"}], 
-           ",", "  ", 
-           RowBox[{"(*", " ", 
             RowBox[{
-             RowBox[{"a", " ", "la", " ", "izq"}], ",", " ", 
-             RowBox[{"f", "<", "0"}]}], " ", "*)"}], "\n", "      ", 
-           RowBox[{"Arrow", "[", 
-            RowBox[{"{", 
-             RowBox[{
-              RowBox[{"{", 
-               RowBox[{"0.3", ",", " ", "0"}], "}"}], ",", " ", 
-              RowBox[{"{", 
-               RowBox[{"0.5", ",", " ", "0"}], "}"}]}], "}"}], "]"}], ",", 
-           "    ", 
-           RowBox[{"(*", " ", 
+             RowBox[{"{", 
+              RowBox[{
+               RowBox[{"-", "0.8"}], ",", " ", "0"}], "}"}], ",", " ", 
+             RowBox[{"{", 
+              RowBox[{
+               RowBox[{"-", "0.9"}], ",", " ", "0"}], "}"}]}], "}"}], "]"}], ",",
+           "  ", 
+          RowBox[{"(*", " ", 
+           RowBox[{
+            RowBox[{"a", " ", "la", " ", "izq"}], ",", " ", 
+            RowBox[{"f", "<", "0"}]}], " ", "*)"}], "\n", "      ", 
+          RowBox[{"Arrow", "[", 
+           RowBox[{"{", 
             RowBox[{
-             RowBox[{"a", " ", "la", " ", "der"}], ",", " ", 
-             RowBox[{"f", ">", "0"}]}], " ", "*)"}], "\n", "      ", 
-           RowBox[{"Arrow", "[", 
-            RowBox[{"{", 
-             RowBox[{
-              RowBox[{"{", 
-               RowBox[{"1.3", ",", " ", "0"}], "}"}], ",", " ", 
-              RowBox[{"{", 
-               RowBox[{"1.1", ",", " ", "0"}], "}"}]}], "}"}], "]"}], ",", 
-           "    ", 
-           RowBox[{"(*", " ", 
-            RowBox[{
-             RowBox[{"a", " ", "la", " ", "izq"}], ",", " ", 
-             RowBox[{"f", "<", "0"}]}], " ", "*)"}], "\n", "      ", 
-           RowBox[{"Arrow", "[", 
-            RowBox[{"{", 
-             RowBox[{
-              RowBox[{"{", 
-               RowBox[{"2.3", ",", " ", "0"}], "}"}], ",", " ", 
-              RowBox[{"{", 
-               RowBox[{"2.5", ",", " ", "0"}], "}"}]}], "}"}], "]"}]}], 
-          "     ", 
+             RowBox[{"{", 
+              RowBox[{"0.3", ",", " ", "0"}], "}"}], ",", " ", 
+             RowBox[{"{", 
+              RowBox[{"0.5", ",", " ", "0"}], "}"}]}], "}"}], "]"}], ",", 
+          "    ", 
           RowBox[{"(*", " ", 
            RowBox[{
             RowBox[{"a", " ", "la", " ", "der"}], ",", " ", 
-            RowBox[{"f", ">", "0"}]}], " ", "*)"}], "\n", "    ", "}"}]}], ",",
-         "\n", "    ", 
-        RowBox[{"ImageSize", " ", "->", " ", "400"}]}], "\n", "  ", "]"}]}], ";",
-      "\n", "  ", "\n", "  ", 
+            RowBox[{"f", ">", "0"}]}], " ", "*)"}], "\n", "      ", 
+          RowBox[{"Arrow", "[", 
+           RowBox[{"{", 
+            RowBox[{
+             RowBox[{"{", 
+              RowBox[{"1.3", ",", " ", "0"}], "}"}], ",", " ", 
+             RowBox[{"{", 
+              RowBox[{"1.1", ",", " ", "0"}], "}"}]}], "}"}], "]"}], ",", 
+          "    ", 
+          RowBox[{"(*", " ", 
+           RowBox[{
+            RowBox[{"a", " ", "la", " ", "izq"}], ",", " ", 
+            RowBox[{"f", "<", "0"}]}], " ", "*)"}], "\n", "      ", 
+          RowBox[{"Arrow", "[", 
+           RowBox[{"{", 
+            RowBox[{
+             RowBox[{"{", 
+              RowBox[{"2.3", ",", " ", "0"}], "}"}], ",", " ", 
+             RowBox[{"{", 
+              RowBox[{"2.5", ",", " ", "0"}], "}"}]}], "}"}], "]"}]}], 
+         "     ", 
+         RowBox[{"(*", " ", 
+          RowBox[{
+           RowBox[{"a", " ", "la", " ", "der"}], ",", " ", 
+           RowBox[{"f", ">", "0"}]}], " ", "*)"}], "\n", "    ", "}"}]}], ",",
+        "\n", "    ", 
+       RowBox[{"ImageSize", " ", "->", " ", "400"}]}], "\n", "  ", "]"}]}], ";",
+     "\n", "  ", "\n", "  ", 
+    RowBox[{
+    "(*", "***********************************************************)"}], 
+    "\n", "  ", 
+    RowBox[{"(*", 
      RowBox[{
-     "(*", "***********************************************************)"}], 
-     "\n", "  ", 
-     RowBox[{"(*", 
-      RowBox[{
-       RowBox[{" ", "2", ")"}], " ", "Campo", " ", "de", " ", "pendientes", " ", 
-       RowBox[{"(", 
-        RowBox[{
-         RowBox[{"y", " ", "horizontal"}], ",", " ", 
-         RowBox[{"t", " ", "vertical"}]}], ")"}]}], "        ", "*)"}], "\n", 
-     "  ", 
-     RowBox[{"(*", "    ", 
-      RowBox[{
-       RowBox[{"+", " ", "trayectoria"}], " ", "en", " ", "rojo", " ", 
-       RowBox[{"(", "abajo", ")"}]}], "                          ", "*)"}], 
-     "\n", "  ", 
-     RowBox[{
-     "(*", "***********************************************************)"}], 
-     "\n", "  ", 
-     RowBox[{"dirField", " ", "=", " ", 
-      RowBox[{"StreamPlot", "[", "\n", "    ", 
+      RowBox[{" ", "2", ")"}], " ", "Campo", " ", "de", " ", "pendientes", " ", 
+      RowBox[{"(", 
        RowBox[{
-        RowBox[{"{", 
-         RowBox[{
-          RowBox[{"f", "[", "y", "]"}], ",", " ", "1"}], "}"}], ",", "   ", 
-        RowBox[{"(*", " ", 
+        RowBox[{"y", " ", "horizontal"}], ",", " ", 
+        RowBox[{"t", " ", "vertical"}]}], ")"}]}], "        ", "*)"}], "\n", 
+    "  ", 
+    RowBox[{"(*", "    ", 
+     RowBox[{
+      RowBox[{"+", " ", "trayectoria"}], " ", "en", " ", "rojo", " ", 
+      RowBox[{"(", "abajo", ")"}]}], "                          ", "*)"}], 
+    "\n", "  ", 
+    RowBox[{
+    "(*", "***********************************************************)"}], 
+    "\n", "  ", 
+    RowBox[{"dirField", " ", "=", " ", 
+     RowBox[{"StreamPlot", "[", "\n", "    ", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"f", "[", "y", "]"}], ",", " ", "1"}], "}"}], ",", "   ", 
+       RowBox[{"(*", " ", 
+        RowBox[{
+         RowBox[{"(", 
+          RowBox[{"dx", ",", " ", "dy"}], ")"}], " ", "=", " ", 
          RowBox[{
           RowBox[{"(", 
-           RowBox[{"dx", ",", " ", "dy"}], ")"}], " ", "=", " ", 
-          RowBox[{
-           RowBox[{"(", 
-            RowBox[{
-             RowBox[{"f", 
-              RowBox[{"(", "y", ")"}]}], ",", " ", "1"}], ")"}], " ", "en", " ",
-            "coords", " ", 
-           RowBox[{"(", 
-            RowBox[{"y", ",", "t"}], ")"}]}]}], " ", "*)"}], "\n", "    ", 
-        RowBox[{"{", 
-         RowBox[{"y", ",", " ", "yMin", ",", " ", "yMax"}], "}"}], ",", " ", 
-        RowBox[{"{", 
-         RowBox[{"t", ",", " ", "0", ",", " ", "tMax"}], "}"}], ",", "\n", 
-        "    ", 
-        RowBox[{"StreamStyle", " ", "->", " ", 
-         RowBox[{"Arrowheads", "[", "Small", "]"}]}], ",", "\n", "    ", 
-        RowBox[{"(*", " ", 
-         RowBox[{"Para", " ", "que", " ", "aparezcan", " ", "ejes", " ", 
-          RowBox[{"tradicionales", ":"}]}], " ", "*)"}], "\n", "    ", 
-        RowBox[{"Axes", " ", "->", " ", "True"}], ",", " ", 
-        RowBox[{"Frame", " ", "->", " ", "False"}], ",", "\n", "    ", 
-        RowBox[{"AxesLabel", " ", "->", " ", 
-         RowBox[{"{", 
-          RowBox[{"\"\<y\>\"", ",", " ", "\"\<t\>\""}], "}"}]}], ",", "\n", 
-        "    ", 
-        RowBox[{
-        "PlotLabel", " ", "->", " ", "\"\<Campo de pendientes en (y,t)\>\""}],
-         ",", "\n", "    ", 
-        RowBox[{"PlotRange", " ", "->", " ", "All"}], ",", "\n", "    ", 
-        RowBox[{"ImageSize", " ", "->", " ", "400"}]}], "\n", "  ", "]"}]}], ";",
-      "\n", "  ", "\n", "  ", 
-     RowBox[{"(*", " ", 
-      RowBox[{
-       RowBox[{"Resolvemos", " ", "la", " ", "ODE", " ", "con", " ", "y", 
-        RowBox[{"(", "0", ")"}]}], "=", "0.5"}], " ", "*)"}], "\n", "  ", 
-     RowBox[{"sol", " ", "=", " ", 
-      RowBox[{"First", "@", 
-       RowBox[{"NDSolve", "[", "\n", "    ", 
-        RowBox[{
-         RowBox[{"{", 
-          RowBox[{
            RowBox[{
-            RowBox[{
-             RowBox[{"y", "'"}], "[", "t", "]"}], " ", "==", " ", 
-            RowBox[{"f", "[", 
-             RowBox[{"y", "[", "t", "]"}], "]"}]}], ",", " ", 
-           RowBox[{
-            RowBox[{"y", "[", "0", "]"}], " ", "==", " ", "0.5"}]}], "}"}], ",",
-          "\n", "    ", "y", ",", " ", 
-         RowBox[{"{", 
-          RowBox[{"t", ",", " ", "0", ",", " ", "tMax"}], "}"}]}], "\n", "  ",
-         "]"}]}]}], ";", "\n", "  ", "\n", "  ", 
-     RowBox[{"(*", " ", 
-      RowBox[{"Trayectoria", " ", 
-       RowBox[{"param\[EAcute]trica", ":", " ", 
-        RowBox[{"(", 
+            RowBox[{"f", 
+             RowBox[{"(", "y", ")"}]}], ",", " ", "1"}], ")"}], " ", "en", " ",
+           "coords", " ", 
+          RowBox[{"(", 
+           RowBox[{"y", ",", "t"}], ")"}]}]}], " ", "*)"}], "\n", "    ", 
+       RowBox[{"{", 
+        RowBox[{"y", ",", " ", "yMin", ",", " ", "yMax"}], "}"}], ",", " ", 
+       RowBox[{"{", 
+        RowBox[{"t", ",", " ", "0", ",", " ", "tMax"}], "}"}], ",", "\n", 
+       "    ", 
+       RowBox[{"StreamStyle", " ", "->", " ", 
+        RowBox[{"Arrowheads", "[", "Small", "]"}]}], ",", "\n", "    ", 
+       RowBox[{"(*", " ", 
+        RowBox[{"Para", " ", "que", " ", "aparezcan", " ", "ejes", " ", 
+         RowBox[{"tradicionales", ":"}]}], " ", "*)"}], "\n", "    ", 
+       RowBox[{"Axes", " ", "->", " ", "True"}], ",", " ", 
+       RowBox[{"Frame", " ", "->", " ", "False"}], ",", "\n", "    ", 
+       RowBox[{"AxesLabel", " ", "->", " ", 
+        RowBox[{"{", 
+         RowBox[{"\"\<y\>\"", ",", " ", "\"\<t\>\""}], "}"}]}], ",", "\n", 
+       "    ", 
+       RowBox[{
+       "PlotLabel", " ", "->", " ", "\"\<Campo de pendientes en (y,t)\>\""}], 
+       ",", "\n", "    ", 
+       RowBox[{"PlotRange", " ", "->", " ", "All"}], ",", "\n", "    ", 
+       RowBox[{"ImageSize", " ", "->", " ", "400"}]}], "\n", "  ", "]"}]}], ";",
+     "\n", "  ", "\n", "  ", 
+    RowBox[{"(*", " ", 
+     RowBox[{
+      RowBox[{"Resolvemos", " ", "la", " ", "ODE", " ", "con", " ", "y", 
+       RowBox[{"(", "0", ")"}]}], "=", "0.5"}], " ", "*)"}], "\n", "  ", 
+    RowBox[{"sol", " ", "=", " ", 
+     RowBox[{"First", "@", 
+      RowBox[{"NDSolve", "[", "\n", "    ", 
+       RowBox[{
+        RowBox[{"{", 
          RowBox[{
-          RowBox[{"y", 
-           RowBox[{"(", "t", ")"}]}], ",", " ", "t"}], ")"}]}]}], " ", "*)"}],
-      "\n", "  ", 
-     RowBox[{"solCurve", " ", "=", " ", 
-      RowBox[{"ParametricPlot", "[", "\n", "    ", 
-       RowBox[{
-        RowBox[{"Evaluate", "[", 
-         RowBox[{"{", 
           RowBox[{
            RowBox[{
-            RowBox[{"y", "[", "t", "]"}], " ", "/.", " ", "sol"}], ",", " ", 
-           "t"}], "}"}], "]"}], ",", "\n", "    ", 
+            RowBox[{"y", "'"}], "[", "t", "]"}], " ", "==", " ", 
+           RowBox[{"f", "[", 
+            RowBox[{"y", "[", "t", "]"}], "]"}]}], ",", " ", 
+          RowBox[{
+           RowBox[{"y", "[", "0", "]"}], " ", "==", " ", "0.5"}]}], "}"}], ",",
+         "\n", "    ", "y", ",", " ", 
         RowBox[{"{", 
-         RowBox[{"t", ",", " ", "0", ",", " ", "tMax"}], "}"}], ",", "\n", 
-        "    ", 
-        RowBox[{"PlotStyle", " ", "->", " ", 
-         RowBox[{"{", 
-          RowBox[{"Thick", ",", " ", "Red"}], "}"}]}], ",", "\n", "      ", 
-        RowBox[{"(*", " ", 
-         RowBox[{"evitamos", " ", "ejes", " ", "dobles"}], " ", "*)"}], "\n", 
-        "    ", 
-        RowBox[{"PlotRange", " ", "->", " ", "All"}]}], "\n", "  ", "]"}]}], ";",
-      "\n", "  ", "\n", "  ", 
-     RowBox[{"(*", " ", 
+         RowBox[{"t", ",", " ", "0", ",", " ", "tMax"}], "}"}]}], "\n", "  ", 
+       "]"}]}]}], ";", "\n", "  ", "\n", "  ", 
+    RowBox[{"(*", " ", 
+     RowBox[{"Trayectoria", " ", 
+      RowBox[{"param\[EAcute]trica", ":", " ", 
+       RowBox[{"(", 
+        RowBox[{
+         RowBox[{"y", 
+          RowBox[{"(", "t", ")"}]}], ",", " ", "t"}], ")"}]}]}], " ", "*)"}], 
+    "\n", "  ", 
+    RowBox[{"solCurve", " ", "=", " ", 
+     RowBox[{"ParametricPlot", "[", "\n", "    ", 
       RowBox[{
-       RowBox[{
-       "Fusionamos", " ", "dirField", " ", "y", " ", "solCurve", " ", "con", " ",
-         "PlotRange"}], "->", "All"}], " ", "*)"}], "\n", "  ", 
-     RowBox[{"GraphicsColumn", "[", "\n", "    ", 
-      RowBox[{
-       RowBox[{"{", "\n", "      ", 
-        RowBox[{"plotYprime", ",", "\n", "      ", 
-         RowBox[{"Show", "[", "\n", "        ", 
+       RowBox[{"Evaluate", "[", 
+        RowBox[{"{", 
+         RowBox[{
           RowBox[{
-          "dirField", ",", "\n", "        ", "solCurve", ",", "\n", 
-           "        ", 
-           RowBox[{"PlotRange", " ", "->", " ", "All"}], ",", "\n", 
-           "        ", 
-           RowBox[{
-           "PlotLabel", " ", "->", 
-            " ", "\"\<Trayectoria en rojo, y(0)=0.5\>\""}]}], "\n", "      ", 
-          "]"}]}], "\n", "    ", "}"}], ",", "\n", "    ", 
-       RowBox[{"Alignment", " ", "->", " ", "Center"}]}], "\n", "  ", 
-      "]"}]}]}], "\n", "]"}], "\n"}]], "Code",
+           RowBox[{"y", "[", "t", "]"}], " ", "/.", " ", "sol"}], ",", " ", 
+          "t"}], "}"}], "]"}], ",", "\n", "    ", 
+       RowBox[{"{", 
+        RowBox[{"t", ",", " ", "0", ",", " ", "tMax"}], "}"}], ",", "\n", 
+       "    ", 
+       RowBox[{"PlotStyle", " ", "->", " ", 
+        RowBox[{"{", 
+         RowBox[{"Thick", ",", " ", "Red"}], "}"}]}], ",", "\n", "      ", 
+       RowBox[{"(*", " ", 
+        RowBox[{"evitamos", " ", "ejes", " ", "dobles"}], " ", "*)"}], "\n", 
+       "    ", 
+       RowBox[{"PlotRange", " ", "->", " ", "All"}]}], "\n", "  ", "]"}]}], ";",
+     "\n", "  ", "\n", "  ", 
+    RowBox[{"(*", " ", 
+     RowBox[{
+      RowBox[{
+      "Fusionamos", " ", "dirField", " ", "y", " ", "solCurve", " ", "con", " ",
+        "PlotRange"}], "->", "All"}], " ", "*)"}], "\n", "  ", 
+    RowBox[{"GraphicsColumn", "[", "\n", "    ", 
+     RowBox[{
+      RowBox[{"{", "\n", "      ", 
+       RowBox[{"plotYprime", ",", "\n", "      ", 
+        RowBox[{"Show", "[", "\n", "        ", 
+         RowBox[{
+         "dirField", ",", "\n", "        ", "solCurve", ",", "\n", "        ", 
+          RowBox[{"PlotRange", " ", "->", " ", "All"}], ",", "\n", "        ", 
+          RowBox[{
+          "PlotLabel", " ", "->", 
+           " ", "\"\<Trayectoria en rojo, y(0)=0.5\>\""}]}], "\n", "      ", 
+         "]"}]}], "\n", "    ", "}"}], ",", "\n", "    ", 
+      RowBox[{"Alignment", " ", "->", " ", "Center"}]}], "\n", "  ", 
+     "]"}]}]}], "\n", "]"}], "\n"}], "Code",
  CellChangeTimes->{
   3.9515324810680466`*^9, 3.951532983147585*^9, {3.9515330137070217`*^9, 
    3.9515330319978523`*^9}, 3.951533088337263*^9, {3.951533124361513*^9, 
    3.9515331259942455`*^9}, {3.9516891230178127`*^9, 3.951689128548607*^9}, 
-   3.9516891717893505`*^9, {3.9516896098436394`*^9, 3.951689612617132*^9}},
- CellLabel->"In[10]:=",ExpressionUUID->"bcdfaaac-b093-e44c-bb05-cfc0d63849e2"],
+   3.9516891717893505`*^9, {3.9516896098436394`*^9, 3.951689612617132*^9}, {
+   3.951697000113352*^9, 3.9516970263031845`*^9}, {3.9516970605135098`*^9, 
+   3.9516970612141743`*^9}, {3.9516971408782024`*^9, 3.951697141155777*^9}},
+ CellLabel->"In[40]:=",ExpressionUUID->"bcdfaaac-b093-e44c-bb05-cfc0d63849e2"],
 
 Cell[BoxData[
  GraphicsBox[{{}, {InsetBox[
@@ -952,7 +950,7 @@ LypWJoTO+akpErv6hLBSq2S5w8tkrLOjaSlwWgiL3r1xfnWVjP3//0rs/wCj
          RGBColor[1, 0, 0], 
          PointSize[Large], 
          PointBox[{{0, 0}, {1, 0}, {2, 0}}]}, 
-        ArrowBox[{{-0.8, 0}, {-0.6, 0}}], 
+        ArrowBox[{{-0.8, 0}, {-0.9, 0}}], 
         ArrowBox[{{0.3, 0}, {0.5, 0}}], 
         ArrowBox[{{1.3, 0}, {1.1, 0}}], 
         ArrowBox[{{2.3, 0}, {2.5, 0}}]},
@@ -989,8 +987,7 @@ LypWJoTO+akpErv6hLBSq2S5w8tkrLOjaSlwWgiL3r1xfnWVjP3//0rs/wCj
              Part[#, 1]], 
             (Identity[#]& )[
              Part[#, 2]]}& )}},
-      PlotLabel->FormBox[
-       "\"Inciso (a): y'(y) y diagrama de fases\"", TraditionalForm],
+      PlotLabel->FormBox["\"Inciso (a)\"", TraditionalForm],
       PlotRange->{{-1., 3.}, All},
       PlotRangeClipping->True,
       PlotRangePadding->{{0, 0}, {
@@ -4607,6 +4604,36 @@ LypWJoTO+akpErv6hLBSq2S5w8tkrLOjaSlwWgiL3r1xfnWVjP3//0rs/wCj
          {RGBColor[0.192, 0.48, 0.64], 
           {Arrowheads[Small], 
            {RGBColor[
+            0.004965166331010193, 0.004965166331010193, 0.004965166331010193],
+             ArrowBox[{{2.1188259080221727`, 1.4452286179027651`}, {
+             2.1444080262893643`, 1.525029522892734}, {2.1832271818237126`, 
+             1.619333364883518}, {2.2358967957022133`, 1.713637206874302}, {
+             2.2521761368928783`, 1.7341689852091307`}}]}}, 
+          {Arrowheads[Small], 
+           {RGBColor[
+            0.030916999089710656`, 0.030916999089710656`, 
+             0.030916999089710656`], 
+            ArrowBox[{{2.2571464543181143`, 1.740437632965417}, {
+             2.3106689072223507`, 1.807941048865086}, {2.370608764631304, 
+             1.8639966385498044`}, {2.448636564601059, 1.9200522282345227`}, {
+             2.497897124129627, 1.9460707953796568`}}]}}, 
+          {Arrowheads[Small], 
+           {RGBColor[
+            0.14836511294677354`, 0.14836511294677354`, 0.14836511294677354`],
+             ArrowBox[{{2.5049710198850144`, 1.9498071035631332`}, {
+             2.5547657644593795`, 1.976107817919241}, {2.622386214618555, 
+             2.004006508785906}, {2.704560493519974, 2.0319051996525705`}, {
+             2.8046743560306298`, 2.0591528212098527`}}]}}, 
+          {Arrowheads[Small], 
+           {RGBColor[
+            0.4173136040800564, 0.4173136040800564, 0.4173136040800564], 
+            ArrowBox[{{2.812430318304044, 2.061111219139655}, {
+             2.8642987583818114`, 2.0737532359525677`}, {2.928850251126585, 
+             2.0877025813859}, {2.9754685066514215`, 2.095837854467564}, {3., 
+             2.099735919947909}}]}}}, 
+         {RGBColor[0.192, 0.48, 0.64], 
+          {Arrowheads[Small], 
+           {RGBColor[
             0.007274061622737605, 0.007274061622737605, 0.007274061622737605],
              ArrowBox[{{2.1413072169441034`, 3.50729828873883}, {
              2.1867767183755253`, 3.6178466914650644`}, {2.2526157387493115`, 
@@ -4890,38 +4917,7 @@ LypWJoTO+akpErv6hLBSq2S5w8tkrLOjaSlwWgiL3r1xfnWVjP3//0rs/wCj
            {RGBColor[0.551688835418685, 0.551688835418685, 0.551688835418685],
              ArrowBox[{{2.9257210669567244`, 5.8669936754020675`}, {
              2.961150880554693, 5.874067219274767}, {3., 
-             5.880118763303294}}]}}}, 
-         {RGBColor[0.192, 0.48, 0.64], 
-          {Arrowheads[Small], 
-           {RGBColor[
-            0.003950517620564234, 0.003950517620564234, 0.003950517620564234],
-             ArrowBox[{{2.107920242605461, 1.4052998641708818`}, {
-             2.1409161000502315`, 1.5167741065610416`}, {2.186669701470545, 
-             1.6282483489512014`}, {2.2293081771520273`, 
-             1.6997460910436335`}}]}}, 
-          {Arrowheads[Small], 
-           {RGBColor[
-            0.02460067037698034, 0.02460067037698034, 0.02460067037698034], 
-            ArrowBox[{{2.233405744330485, 1.7066170402661227`}, {
-             2.253148608834077, 1.7397225913413612`}, {2.3067949508241696`, 
-             1.8053934012496256`}, {2.377399626099785, 1.87106421115789}, {
-             2.4604532026861703`, 1.9271774540067215`}}]}}, 
-          {Arrowheads[Small], 
-           {RGBColor[
-            0.12334861310147671`, 0.12334861310147671`, 0.12334861310147671`],
-             ArrowBox[{{2.46708206396295, 1.9316560919886543`}, {
-             2.4745994200040426`, 1.9367350210661542`}, {2.5366154030793884`, 
-             1.9692041119222363`}, {2.612374434117935, 2.0016732027783184`}, {
-             2.707431724481425, 2.0341422936344005`}, {2.7606490018202186`, 
-             2.0503768390624417`}, {2.762979990941575, 
-             2.0510055141690455`}}]}}, 
-          {Arrowheads[Small], 
-           {RGBColor[
-            0.3728745264050286, 0.3728745264050286, 0.3728745264050286], 
-            ArrowBox[{{2.770704000319439, 2.053088703822119}, {
-             2.8208431281430615`, 2.066611384490483}, {2.8657951798473476`, 
-             2.076328141113187}, {2.9154271196610737`, 2.086044897735891}, {
-             3., 2.1008854494817535`}}]}}}}}, 
+             5.880118763303294}}]}}}}}, 
        InterpretationBox[{
          TagBox[{{{}, {}, 
             TagBox[
@@ -5432,8 +5428,9 @@ zdWE/b/TUwX4L/RsbcE=
  CellChangeTimes->{
   3.95153248265938*^9, 3.9515330609779625`*^9, 3.9515331325243587`*^9, {
    3.9516891322855034`*^9, 3.9516891364864254`*^9}, 3.9516891736920185`*^9, 
-   3.9516896171960793`*^9},
- CellLabel->"Out[10]=",ExpressionUUID->"edc4c3de-4d1c-cf45-ba4e-401276a0544f"]
+   3.9516896171960793`*^9, 3.951697002311178*^9, 3.9516970634758377`*^9, 
+   3.9516971455888767`*^9},
+ CellLabel->"Out[41]=",ExpressionUUID->"4b6e718b-5411-314b-84d6-732e8efa8051"]
 }, {2}]],
 
 Cell[BoxData[
@@ -5449,237 +5446,235 @@ Cell[BoxData[
 
 Cell[CellGroupData[{
 
-Cell[BoxData[
- RowBox[{
-  RowBox[{"Module", "[", "\n", "  ", 
-   RowBox[{
-    RowBox[{"{", 
+Cell[BoxData[{
+ RowBox[{"ClearAll", "[", "\"\<Global`*\>\"", "]"}], "\n", 
+ RowBox[{"Module", "[", "\n", "  ", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{
+    "g", ",", " ", "yMin", ",", " ", "yMax", ",", " ", "tMax", ",", " ", 
+     "plotYprime", ",", " ", "dirField", ",", " ", "sol", ",", " ", 
+     "solCurve"}], "}"}], ",", "\n", "  ", "\n", "  ", 
+   RowBox[{"(*", " ", 
+    RowBox[{
+     RowBox[{"y", "'"}], " ", "=", " ", 
      RowBox[{
-     "g", ",", " ", "yMin", ",", " ", "yMax", ",", " ", "tMax", ",", " ", 
-      "plotYprime", ",", " ", "dirField", ",", " ", "sol", ",", " ", 
-      "solCurve"}], "}"}], ",", "\n", "  ", "\n", "  ", 
+      RowBox[{"y", "^", "2"}], " ", 
+      RowBox[{"(", 
+       RowBox[{"y", "+", "1"}], ")"}]}]}], " ", "*)"}], "\n", "  ", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"g", "[", "y_", "]"}], " ", ":=", " ", 
+     RowBox[{
+      RowBox[{"y", "^", "2"}], " ", 
+      RowBox[{"(", 
+       RowBox[{"y", " ", "+", " ", "1"}], ")"}]}]}], ";", "\n", "  ", "\n", 
+    "  ", 
+    RowBox[{"yMin", " ", "=", " ", 
+     RowBox[{"-", "1.1"}]}], ";", " ", 
+    RowBox[{"yMax", " ", "=", " ", "1"}], ";", "\n", "  ", 
+    RowBox[{"tMax", " ", "=", " ", "5"}], ";", "\n", "  ", "\n", "  ", 
+    RowBox[{
+    "(*", "***********************************************************)"}], 
+    "\n", "  ", 
+    RowBox[{"(*", 
+     RowBox[{
+      RowBox[{
+       RowBox[{" ", "1", ")"}], " ", 
+       RowBox[{"y", "'"}], 
+       RowBox[{"(", "y", ")"}]}], " ", "+", " ", 
+      RowBox[{"Diagrama", " ", "de", " ", "Fases", " ", 
+       RowBox[{"(", "arriba", ")"}]}]}], "                     ", "*)"}], 
+    "\n", "  ", 
+    RowBox[{
+    "(*", "***********************************************************)"}], 
+    "\n", "  ", 
+    RowBox[{"plotYprime", " ", "=", " ", 
+     RowBox[{"Plot", "[", "\n", "    ", 
+      RowBox[{
+       RowBox[{"g", "[", "y", "]"}], ",", "\n", "    ", 
+       RowBox[{"{", 
+        RowBox[{"y", ",", " ", "yMin", ",", " ", "yMax"}], "}"}], ",", "\n", 
+       "    ", 
+       RowBox[{"AxesLabel", " ", "->", " ", 
+        RowBox[{"{", 
+         RowBox[{"\"\<y\>\"", ",", " ", "\"\<y'\>\""}], "}"}]}], ",", "\n", 
+       "    ", 
+       RowBox[{"PlotLabel", " ", "->", " ", "\"\<Inciso (b)\>\""}], ",", "\n",
+        "    ", 
+       RowBox[{"PlotRange", " ", "->", " ", 
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"{", 
+           RowBox[{"yMin", ",", " ", "yMax"}], "}"}], ",", " ", "All"}], 
+         "}"}]}], ",", "\n", "    ", 
+       RowBox[{"PlotStyle", " ", "->", " ", "Thick"}], ",", "\n", "    ", 
+       RowBox[{"Epilog", " ", "->", " ", 
+        RowBox[{"{", "\n", "      ", 
+         RowBox[{"Thick", ",", " ", 
+          RowBox[{"Line", "[", 
+           RowBox[{"{", 
+            RowBox[{
+             RowBox[{"{", 
+              RowBox[{"yMin", ",", " ", "0"}], "}"}], ",", " ", 
+             RowBox[{"{", 
+              RowBox[{"yMax", ",", " ", "0"}], "}"}]}], "}"}], "]"}], ",", 
+          "\n", "      ", 
+          RowBox[{"{", 
+           RowBox[{"Red", ",", " ", 
+            RowBox[{"PointSize", "[", "Large", "]"}], ",", "\n", "       ", 
+            RowBox[{"Point", "[", 
+             RowBox[{"{", 
+              RowBox[{
+               RowBox[{"{", 
+                RowBox[{
+                 RowBox[{"-", "1"}], ",", " ", "0"}], "}"}], ",", " ", 
+               RowBox[{"{", 
+                RowBox[{"0", ",", " ", "0"}], "}"}]}], "}"}], "]"}]}], "}"}], 
+          ",", "\n", "      ", 
+          RowBox[{"Arrow", "[", 
+           RowBox[{"{", 
+            RowBox[{
+             RowBox[{"{", 
+              RowBox[{
+               RowBox[{"-", "1.8"}], ",", " ", "0"}], "}"}], ",", " ", 
+             RowBox[{"{", 
+              RowBox[{
+               RowBox[{"-", "1.6"}], ",", " ", "0"}], "}"}]}], "}"}], "]"}], ",",
+           "\n", "      ", 
+          RowBox[{"Arrow", "[", 
+           RowBox[{"{", 
+            RowBox[{
+             RowBox[{"{", 
+              RowBox[{
+               RowBox[{"-", "0.8"}], ",", " ", "0"}], "}"}], ",", " ", 
+             RowBox[{"{", 
+              RowBox[{
+               RowBox[{"-", "0.6"}], ",", " ", "0"}], "}"}]}], "}"}], "]"}], ",",
+           "\n", "      ", 
+          RowBox[{"Arrow", "[", 
+           RowBox[{"{", 
+            RowBox[{
+             RowBox[{"{", 
+              RowBox[{"0.4", ",", " ", "0"}], "}"}], ",", " ", 
+             RowBox[{"{", 
+              RowBox[{"0.6", ",", " ", "0"}], "}"}]}], "}"}], "]"}]}], "\n", 
+         "    ", "}"}]}], ",", "\n", "    ", 
+       RowBox[{"ImageSize", " ", "->", " ", "400"}]}], "\n", "  ", "]"}]}], ";",
+     "\n", "  ", "\n", "  ", 
+    RowBox[{
+    "(*", "***********************************************************)"}], 
+    "\n", "  ", 
+    RowBox[{"(*", 
+     RowBox[{
+      RowBox[{" ", "2", ")"}], " ", "Campo", " ", "de", " ", "pendientes", " ", 
+      RowBox[{"(", 
+       RowBox[{
+        RowBox[{"y", " ", "horizontal"}], ",", " ", 
+        RowBox[{"t", " ", "vertical"}]}], ")"}]}], "         ", "*)"}], "\n", 
+    "  ", 
+    RowBox[{"(*", "    ", 
+     RowBox[{
+      RowBox[{"+", " ", "trayectoria"}], " ", "roja", " ", 
+      RowBox[{"(", "abajo", ")"}]}], "                             ", "*)"}], 
+    "\n", "  ", 
+    RowBox[{
+    "(*", "***********************************************************)"}], 
+    "\n", "  ", 
+    RowBox[{"dirField", " ", "=", " ", 
+     RowBox[{"StreamPlot", "[", "\n", "    ", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"g", "[", "y", "]"}], ",", " ", "1"}], "}"}], ",", "\n", 
+       "    ", 
+       RowBox[{"{", 
+        RowBox[{"y", ",", " ", "yMin", ",", " ", "yMax"}], "}"}], ",", " ", 
+       RowBox[{"{", 
+        RowBox[{"t", ",", " ", "0", ",", " ", "tMax"}], "}"}], ",", "\n", 
+       "    ", 
+       RowBox[{"StreamStyle", " ", "->", " ", 
+        RowBox[{"Arrowheads", "[", "Small", "]"}]}], ",", "\n", "    ", 
+       RowBox[{"Axes", " ", "->", " ", "True"}], ",", " ", 
+       RowBox[{"Frame", " ", "->", " ", "False"}], ",", "\n", "    ", 
+       RowBox[{"AxesLabel", " ", "->", " ", 
+        RowBox[{"{", 
+         RowBox[{"\"\<y\>\"", ",", " ", "\"\<t\>\""}], "}"}]}], ",", "\n", 
+       "    ", 
+       RowBox[{
+       "PlotLabel", " ", "->", " ", "\"\<Campo de pendientes en (y,t)\>\""}], 
+       ",", "\n", "    ", 
+       RowBox[{"PlotRange", " ", "->", " ", "All"}], ",", "\n", "    ", 
+       RowBox[{"ImageSize", " ", "->", " ", "400"}]}], "\n", "  ", "]"}]}], ";",
+     "\n", "  ", "\n", "  ", 
     RowBox[{"(*", " ", 
      RowBox[{
-      RowBox[{"y", "'"}], " ", "=", " ", 
       RowBox[{
-       RowBox[{"y", "^", "2"}], " ", 
-       RowBox[{"(", 
-        RowBox[{"y", "+", "1"}], ")"}]}]}], " ", "*)"}], "\n", "  ", 
-    RowBox[{
-     RowBox[{
-      RowBox[{"g", "[", "y_", "]"}], " ", ":=", " ", 
-      RowBox[{
-       RowBox[{"y", "^", "2"}], " ", 
-       RowBox[{"(", 
-        RowBox[{"y", " ", "+", " ", "1"}], ")"}]}]}], ";", "\n", "  ", "\n", 
-     "  ", 
-     RowBox[{"yMin", " ", "=", " ", 
-      RowBox[{"-", "1.1"}]}], ";", " ", 
-     RowBox[{"yMax", " ", "=", " ", "1"}], ";", "\n", "  ", 
-     RowBox[{"tMax", " ", "=", " ", "5"}], ";", "\n", "  ", "\n", "  ", 
-     RowBox[{
-     "(*", "***********************************************************)"}], 
-     "\n", "  ", 
-     RowBox[{"(*", 
-      RowBox[{
-       RowBox[{
-        RowBox[{" ", "1", ")"}], " ", 
-        RowBox[{"y", "'"}], 
-        RowBox[{"(", "y", ")"}]}], " ", "+", " ", 
-       RowBox[{"Diagrama", " ", "de", " ", "Fases", " ", 
-        RowBox[{"(", "arriba", ")"}]}]}], "                     ", "*)"}], 
-     "\n", "  ", 
-     RowBox[{
-     "(*", "***********************************************************)"}], 
-     "\n", "  ", 
-     RowBox[{"plotYprime", " ", "=", " ", 
-      RowBox[{"Plot", "[", "\n", "    ", 
-       RowBox[{
-        RowBox[{"g", "[", "y", "]"}], ",", "\n", "    ", 
-        RowBox[{"{", 
-         RowBox[{"y", ",", " ", "yMin", ",", " ", "yMax"}], "}"}], ",", "\n", 
-        "    ", 
-        RowBox[{"AxesLabel", " ", "->", " ", 
-         RowBox[{"{", 
-          RowBox[{"\"\<y\>\"", ",", " ", "\"\<y'\>\""}], "}"}]}], ",", "\n", 
-        "    ", 
-        RowBox[{
-        "PlotLabel", " ", "->", 
-         " ", "\"\<Inciso (b): y'(y) y diagrama de fases\>\""}], ",", "\n", 
-        "    ", 
-        RowBox[{"PlotRange", " ", "->", " ", 
-         RowBox[{"{", 
-          RowBox[{
-           RowBox[{"{", 
-            RowBox[{"yMin", ",", " ", "yMax"}], "}"}], ",", " ", "All"}], 
-          "}"}]}], ",", "\n", "    ", 
-        RowBox[{"PlotStyle", " ", "->", " ", "Thick"}], ",", "\n", "    ", 
-        RowBox[{"Epilog", " ", "->", " ", 
-         RowBox[{"{", "\n", "      ", 
-          RowBox[{"Thick", ",", " ", 
-           RowBox[{"Line", "[", 
-            RowBox[{"{", 
-             RowBox[{
-              RowBox[{"{", 
-               RowBox[{"yMin", ",", " ", "0"}], "}"}], ",", " ", 
-              RowBox[{"{", 
-               RowBox[{"yMax", ",", " ", "0"}], "}"}]}], "}"}], "]"}], ",", 
-           "\n", "      ", 
-           RowBox[{"{", 
-            RowBox[{"Red", ",", " ", 
-             RowBox[{"PointSize", "[", "Large", "]"}], ",", "\n", "       ", 
-             RowBox[{"Point", "[", 
-              RowBox[{"{", 
-               RowBox[{
-                RowBox[{"{", 
-                 RowBox[{
-                  RowBox[{"-", "1"}], ",", " ", "0"}], "}"}], ",", " ", 
-                RowBox[{"{", 
-                 RowBox[{"0", ",", " ", "0"}], "}"}]}], "}"}], "]"}]}], "}"}],
-            ",", "\n", "      ", 
-           RowBox[{"Arrow", "[", 
-            RowBox[{"{", 
-             RowBox[{
-              RowBox[{"{", 
-               RowBox[{
-                RowBox[{"-", "1.8"}], ",", " ", "0"}], "}"}], ",", " ", 
-              RowBox[{"{", 
-               RowBox[{
-                RowBox[{"-", "1.6"}], ",", " ", "0"}], "}"}]}], "}"}], "]"}], 
-           ",", "\n", "      ", 
-           RowBox[{"Arrow", "[", 
-            RowBox[{"{", 
-             RowBox[{
-              RowBox[{"{", 
-               RowBox[{
-                RowBox[{"-", "0.8"}], ",", " ", "0"}], "}"}], ",", " ", 
-              RowBox[{"{", 
-               RowBox[{
-                RowBox[{"-", "0.6"}], ",", " ", "0"}], "}"}]}], "}"}], "]"}], 
-           ",", "\n", "      ", 
-           RowBox[{"Arrow", "[", 
-            RowBox[{"{", 
-             RowBox[{
-              RowBox[{"{", 
-               RowBox[{"0.4", ",", " ", "0"}], "}"}], ",", " ", 
-              RowBox[{"{", 
-               RowBox[{"0.6", ",", " ", "0"}], "}"}]}], "}"}], "]"}]}], "\n", 
-          "    ", "}"}]}], ",", "\n", "    ", 
-        RowBox[{"ImageSize", " ", "->", " ", "400"}]}], "\n", "  ", "]"}]}], ";",
-      "\n", "  ", "\n", "  ", 
-     RowBox[{
-     "(*", "***********************************************************)"}], 
-     "\n", "  ", 
-     RowBox[{"(*", 
-      RowBox[{
-       RowBox[{" ", "2", ")"}], " ", "Campo", " ", "de", " ", "pendientes", " ", 
-       RowBox[{"(", 
-        RowBox[{
-         RowBox[{"y", " ", "horizontal"}], ",", " ", 
-         RowBox[{"t", " ", "vertical"}]}], ")"}]}], "         ", "*)"}], "\n",
-      "  ", 
-     RowBox[{"(*", "    ", 
-      RowBox[{
-       RowBox[{"+", " ", "trayectoria"}], " ", "roja", " ", 
-       RowBox[{"(", "abajo", ")"}]}], "                             ", "*)"}],
-      "\n", "  ", 
-     RowBox[{
-     "(*", "***********************************************************)"}], 
-     "\n", "  ", 
-     RowBox[{"dirField", " ", "=", " ", 
-      RowBox[{"StreamPlot", "[", "\n", "    ", 
+       RowBox[{"ODE", " ", "con", " ", "y", 
+        RowBox[{"(", "0", ")"}]}], "=", " ", 
+       RowBox[{"-", "0.5"}]}], ",", " ", 
+      RowBox[{"por", " ", "ejemplo"}]}], " ", "*)"}], "\n", "  ", 
+    RowBox[{"sol", " ", "=", " ", 
+     RowBox[{"First", "@", 
+      RowBox[{"NDSolve", "[", "\n", "    ", 
        RowBox[{
         RowBox[{"{", 
          RowBox[{
-          RowBox[{"g", "[", "y", "]"}], ",", " ", "1"}], "}"}], ",", "\n", 
-        "    ", 
+          RowBox[{
+           RowBox[{
+            RowBox[{"y", "'"}], "[", "t", "]"}], " ", "==", " ", 
+           RowBox[{"g", "[", 
+            RowBox[{"y", "[", "t", "]"}], "]"}]}], ",", " ", 
+          RowBox[{
+           RowBox[{"y", "[", "0", "]"}], " ", "==", " ", 
+           RowBox[{"-", "0.5"}]}]}], "}"}], ",", "\n", "    ", "y", ",", " ", 
         RowBox[{"{", 
-         RowBox[{"y", ",", " ", "yMin", ",", " ", "yMax"}], "}"}], ",", " ", 
-        RowBox[{"{", 
-         RowBox[{"t", ",", " ", "0", ",", " ", "tMax"}], "}"}], ",", "\n", 
-        "    ", 
-        RowBox[{"StreamStyle", " ", "->", " ", 
-         RowBox[{"Arrowheads", "[", "Small", "]"}]}], ",", "\n", "    ", 
-        RowBox[{"Axes", " ", "->", " ", "True"}], ",", " ", 
-        RowBox[{"Frame", " ", "->", " ", "False"}], ",", "\n", "    ", 
-        RowBox[{"AxesLabel", " ", "->", " ", 
-         RowBox[{"{", 
-          RowBox[{"\"\<y\>\"", ",", " ", "\"\<t\>\""}], "}"}]}], ",", "\n", 
-        "    ", 
-        RowBox[{
-        "PlotLabel", " ", "->", " ", "\"\<Campo de pendientes en (y,t)\>\""}],
-         ",", "\n", "    ", 
-        RowBox[{"PlotRange", " ", "->", " ", "All"}], ",", "\n", "    ", 
-        RowBox[{"ImageSize", " ", "->", " ", "400"}]}], "\n", "  ", "]"}]}], ";",
-      "\n", "  ", "\n", "  ", 
-     RowBox[{"(*", " ", 
-      RowBox[{
+         RowBox[{"t", ",", " ", "0", ",", " ", "tMax"}], "}"}]}], "\n", "  ", 
+       "]"}]}]}], ";", "\n", "  ", "\n", "  ", 
+    RowBox[{"(*", " ", 
+     RowBox[{
+      RowBox[{"(", 
        RowBox[{
-        RowBox[{"ODE", " ", "con", " ", "y", 
-         RowBox[{"(", "0", ")"}]}], "=", " ", 
-        RowBox[{"-", "0.5"}]}], ",", " ", 
-       RowBox[{"por", " ", "ejemplo"}]}], " ", "*)"}], "\n", "  ", 
-     RowBox[{"sol", " ", "=", " ", 
-      RowBox[{"First", "@", 
-       RowBox[{"NDSolve", "[", "\n", "    ", 
-        RowBox[{
-         RowBox[{"{", 
-          RowBox[{
-           RowBox[{
-            RowBox[{
-             RowBox[{"y", "'"}], "[", "t", "]"}], " ", "==", " ", 
-            RowBox[{"g", "[", 
-             RowBox[{"y", "[", "t", "]"}], "]"}]}], ",", " ", 
-           RowBox[{
-            RowBox[{"y", "[", "0", "]"}], " ", "==", " ", 
-            RowBox[{"-", "0.5"}]}]}], "}"}], ",", "\n", "    ", "y", ",", " ", 
-         RowBox[{"{", 
-          RowBox[{"t", ",", " ", "0", ",", " ", "tMax"}], "}"}]}], "\n", "  ",
-         "]"}]}]}], ";", "\n", "  ", "\n", "  ", 
-     RowBox[{"(*", " ", 
+        RowBox[{"y", 
+         RowBox[{"(", "t", ")"}]}], ",", " ", "t"}], ")"}], " ", "en", " ", 
+      "ParametricPlot"}], " ", "*)"}], "\n", "  ", 
+    RowBox[{"solCurve", " ", "=", " ", 
+     RowBox[{"ParametricPlot", "[", "\n", "    ", 
       RowBox[{
-       RowBox[{"(", 
-        RowBox[{
-         RowBox[{"y", 
-          RowBox[{"(", "t", ")"}]}], ",", " ", "t"}], ")"}], " ", "en", " ", 
-       "ParametricPlot"}], " ", "*)"}], "\n", "  ", 
-     RowBox[{"solCurve", " ", "=", " ", 
-      RowBox[{"ParametricPlot", "[", "\n", "    ", 
-       RowBox[{
-        RowBox[{"Evaluate", "[", 
-         RowBox[{"{", 
-          RowBox[{
-           RowBox[{
-            RowBox[{"y", "[", "t", "]"}], " ", "/.", " ", "sol"}], ",", " ", 
-           "t"}], "}"}], "]"}], ",", "\n", "    ", 
+       RowBox[{"Evaluate", "[", 
         RowBox[{"{", 
-         RowBox[{"t", ",", " ", "0", ",", " ", "tMax"}], "}"}], ",", "\n", 
-        "    ", 
-        RowBox[{"PlotStyle", " ", "->", " ", 
-         RowBox[{"{", 
-          RowBox[{"Thick", ",", " ", "Red"}], "}"}]}], ",", "\n", "    ", 
-        RowBox[{"Axes", " ", "->", " ", "None"}], ",", "\n", "    ", 
-        RowBox[{"PlotRange", " ", "->", " ", "All"}]}], "\n", "  ", "]"}]}], ";",
-      "\n", "  ", "\n", "  ", 
-     RowBox[{"GraphicsColumn", "[", "\n", "    ", 
-      RowBox[{
-       RowBox[{"{", "\n", "      ", 
-        RowBox[{"plotYprime", ",", "\n", "      ", 
-         RowBox[{"Show", "[", "\n", "        ", 
+         RowBox[{
           RowBox[{
-          "dirField", ",", "\n", "        ", "solCurve", ",", "\n", 
-           "        ", 
-           RowBox[{"PlotRange", " ", "->", " ", "All"}], ",", "\n", 
-           "        ", 
-           RowBox[{
-           "PlotLabel", " ", "->", 
-            " ", "\"\<Trayectoria roja, y(0)=-0.5\>\""}]}], "\n", "      ", 
-          "]"}]}], "\n", "    ", "}"}], ",", "\n", "    ", 
-       RowBox[{"Alignment", " ", "->", " ", "Center"}]}], "\n", "  ", 
-      "]"}]}]}], "\n", "]"}], "\n"}]], "Code",
+           RowBox[{"y", "[", "t", "]"}], " ", "/.", " ", "sol"}], ",", " ", 
+          "t"}], "}"}], "]"}], ",", "\n", "    ", 
+       RowBox[{"{", 
+        RowBox[{"t", ",", " ", "0", ",", " ", "tMax"}], "}"}], ",", "\n", 
+       "    ", 
+       RowBox[{"PlotStyle", " ", "->", " ", 
+        RowBox[{"{", 
+         RowBox[{"Thick", ",", " ", "Red"}], "}"}]}], ",", "\n", "    ", 
+       RowBox[{"Axes", " ", "->", " ", "None"}], ",", "\n", "    ", 
+       RowBox[{"PlotRange", " ", "->", " ", "All"}]}], "\n", "  ", "]"}]}], ";",
+     "\n", "  ", "\n", "  ", 
+    RowBox[{"GraphicsColumn", "[", "\n", "    ", 
+     RowBox[{
+      RowBox[{"{", "\n", "      ", 
+       RowBox[{"plotYprime", ",", "\n", "      ", 
+        RowBox[{"Show", "[", "\n", "        ", 
+         RowBox[{
+         "dirField", ",", "\n", "        ", "solCurve", ",", "\n", "        ", 
+          RowBox[{"PlotRange", " ", "->", " ", "All"}], ",", "\n", "        ", 
+          RowBox[{
+          "PlotLabel", " ", "->", 
+           " ", "\"\<Trayectoria roja, y(0)=-0.5\>\""}]}], "\n", "      ", 
+         "]"}]}], "\n", "    ", "}"}], ",", "\n", "    ", 
+      RowBox[{"Alignment", " ", "->", " ", "Center"}]}], "\n", "  ", 
+     "]"}]}]}], "\n", "]"}], "\n"}], "Code",
  CellChangeTimes->{
-  3.951532522086708*^9, {3.951689637008831*^9, 3.9516896583625317`*^9}},
- CellLabel->"In[12]:=",ExpressionUUID->"9c5dd7c1-3819-124a-9cc7-1c0f6955ed73"],
+  3.951532522086708*^9, {3.951689637008831*^9, 3.9516896583625317`*^9}, {
+   3.9516970831093655`*^9, 3.951697086952587*^9}, {3.9516972496643047`*^9, 
+   3.95169725127565*^9}},
+ CellLabel->"In[44]:=",ExpressionUUID->"9c5dd7c1-3819-124a-9cc7-1c0f6955ed73"],
 
 Cell[BoxData[
  GraphicsBox[{{}, {InsetBox[
@@ -6336,8 +6331,7 @@ iRuTW1sLsG71sHFrawv+B86I/wA=
              Part[#, 1]], 
             (Identity[#]& )[
              Part[#, 2]]}& )}},
-      PlotLabel->FormBox[
-       "\"Inciso (b): y'(y) y diagrama de fases\"", TraditionalForm],
+      PlotLabel->FormBox["\"Inciso (b)\"", TraditionalForm],
       PlotRange->{{-1.1, 1.}, All},
       PlotRangeClipping->True,
       PlotRangePadding->{{0, 0}, {
@@ -10858,8 +10852,9 @@ ZgVRuE6uZPHnCZhxjzTWsSn88eAhF79FArJNYxjJu6j//9cH8DfmJXUB
   Method->{"IgnoreImageSizeAutomaticLimit" -> True},
   PlotRangePadding->Automatic]], "Output",
  CellChangeTimes->{3.951532523468666*^9, 3.9516891341897984`*^9, 
-  3.951689641972618*^9, 3.951689673528471*^9},
- CellLabel->"Out[12]=",ExpressionUUID->"57aafe46-7b5c-8b4f-a292-ab2808d32257"]
+  3.951689641972618*^9, 3.951689673528471*^9, 3.951697095114193*^9, 
+  3.9516972568331738`*^9},
+ CellLabel->"Out[45]=",ExpressionUUID->"ad5a18a9-926d-0248-b3a0-99aa5ab49b9f"]
 }, {2}]],
 
 Cell[BoxData[
@@ -10877,281 +10872,280 @@ aa92438d5d2f"],
 
 Cell[CellGroupData[{
 
-Cell[BoxData[
- RowBox[{
-  RowBox[{"Manipulate", "[", "\n", "  ", 
-   RowBox[{
-    RowBox[{"Module", "[", "\n", "    ", 
+Cell[BoxData[{
+ RowBox[{"ClearAll", "[", "\"\<Global`*\>\"", "]"}], "\n", 
+ RowBox[{"Manipulate", "[", "\n", "  ", 
+  RowBox[{
+   RowBox[{"Module", "[", "\n", "    ", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"f", ",", " ", 
+       RowBox[{"yMin", " ", "=", " ", 
+        RowBox[{"-", "0.2"}]}], ",", " ", "yMax", ",", " ", 
+       RowBox[{"tMax", " ", "=", " ", "5"}], ",", " ", "plotYprime", ",", " ",
+        "dirField", ",", " ", "sol", ",", " ", "solCurve"}], "}"}], ",", "\n",
+      "    ", "\n", "    ", 
+     RowBox[{"(*", " ", 
+      RowBox[{
+       RowBox[{"Definimos", " ", "f", 
+        RowBox[{"(", "y", ")"}], " ", "con", " ", "los", " ", "sliders", " ", 
+        "de", " ", "r"}], ",", "K", ",", "A"}], " ", "*)"}], "\n", "    ", 
      RowBox[{
-      RowBox[{"{", 
-       RowBox[{"f", ",", " ", 
-        RowBox[{"yMin", " ", "=", " ", 
-         RowBox[{"-", "0.2"}]}], ",", " ", "yMax", ",", " ", 
-        RowBox[{"tMax", " ", "=", " ", "5"}], ",", " ", "plotYprime", ",", 
-        " ", "dirField", ",", " ", "sol", ",", " ", "solCurve"}], "}"}], ",", 
-      "\n", "    ", "\n", "    ", 
+      RowBox[{
+       RowBox[{"f", "[", "y_", "]"}], " ", ":=", " ", 
+       RowBox[{"r", " ", "*", " ", "y", " ", "*", " ", 
+        RowBox[{
+         RowBox[{"(", 
+          RowBox[{"K", " ", "-", " ", "y"}], ")"}], " ", "/", " ", 
+         RowBox[{"(", 
+          RowBox[{"K", " ", "+", " ", 
+           RowBox[{"A", " ", "y"}]}], ")"}]}]}]}], ";", "\n", "    ", "\n", 
+      "    ", 
       RowBox[{"(*", " ", 
        RowBox[{
-        RowBox[{"Definimos", " ", "f", 
-         RowBox[{"(", "y", ")"}], " ", "con", " ", "los", " ", "sliders", " ",
-          "de", " ", "r"}], ",", "K", ",", "A"}], " ", "*)"}], "\n", "    ", 
+       "Tomamos", " ", "yMax", " ", "como", " ", "3", "*", "K", " ", "para", " ",
+         "visualizar", " ", "mas", " ", "alla", " ", "de", " ", "K"}], " ", 
+       "*)"}], "\n", "    ", 
+      RowBox[{"yMax", " ", "=", " ", 
+       RowBox[{"3", " ", "K"}]}], ";", "\n", "    ", "\n", "    ", 
       RowBox[{
+      "(*", "***********************************************************)"}], 
+      "\n", "    ", 
+      RowBox[{"(*", 
        RowBox[{
-        RowBox[{"f", "[", "y_", "]"}], " ", ":=", " ", 
-        RowBox[{"r", " ", "*", " ", "y", " ", "*", " ", 
-         RowBox[{
-          RowBox[{"(", 
-           RowBox[{"K", " ", "-", " ", "y"}], ")"}], " ", "/", " ", 
-          RowBox[{"(", 
-           RowBox[{"K", " ", "+", " ", 
-            RowBox[{"A", " ", "y"}]}], ")"}]}]}]}], ";", "\n", "    ", "\n", 
-       "    ", 
-       RowBox[{"(*", " ", 
         RowBox[{
-        "Tomamos", " ", "yMax", " ", "como", " ", "3", "*", "K", " ", "para", 
-         " ", "visualizar", " ", "mas", " ", "alla", " ", "de", " ", "K"}], 
-        " ", "*)"}], "\n", "    ", 
-       RowBox[{"yMax", " ", "=", " ", 
-        RowBox[{"3", " ", "K"}]}], ";", "\n", "    ", "\n", "    ", 
-       RowBox[{
-       "(*", "***********************************************************)"}],
-        "\n", "    ", 
-       RowBox[{"(*", 
+         RowBox[{" ", "1", ")"}], " ", "Gra\:0301fica", " ", 
+         RowBox[{"y", "'"}], 
+         RowBox[{"(", "y", ")"}]}], " ", "+", " ", 
+        RowBox[{"diagrama", " ", "de", " ", "fases"}]}], 
+       "                    ", "*)"}], "\n", "    ", 
+      RowBox[{
+      "(*", "***********************************************************)"}], 
+      "\n", "    ", 
+      RowBox[{"plotYprime", " ", "=", " ", 
+       RowBox[{"Plot", "[", "\n", "      ", 
         RowBox[{
-         RowBox[{
-          RowBox[{" ", "1", ")"}], " ", "Gra\:0301fica", " ", 
-          RowBox[{"y", "'"}], 
-          RowBox[{"(", "y", ")"}]}], " ", "+", " ", 
-         RowBox[{"diagrama", " ", "de", " ", "fases"}]}], 
-        "                    ", "*)"}], "\n", "    ", 
-       RowBox[{
-       "(*", "***********************************************************)"}],
-        "\n", "    ", 
-       RowBox[{"plotYprime", " ", "=", " ", 
-        RowBox[{"Plot", "[", "\n", "      ", 
-         RowBox[{
-          RowBox[{"f", "[", "y", "]"}], ",", "\n", "      ", 
-          RowBox[{"{", 
-           RowBox[{"y", ",", " ", "yMin", ",", " ", "yMax"}], "}"}], ",", 
-          "\n", "      ", 
-          RowBox[{"AxesLabel", " ", "->", " ", 
-           RowBox[{"{", 
-            RowBox[{"\"\<y\>\"", ",", " ", "\"\<y'\>\""}], "}"}]}], ",", "\n",
-           "      ", 
-          RowBox[{
-          "PlotLabel", " ", "->", 
-           " ", "\"\<Inciso (c): y'(y) y diagrama de fases\>\""}], ",", "\n", 
+         RowBox[{"f", "[", "y", "]"}], ",", "\n", "      ", 
+         RowBox[{"{", 
+          RowBox[{"y", ",", " ", "yMin", ",", " ", "yMax"}], "}"}], ",", "\n",
           "      ", 
-          RowBox[{"PlotRange", " ", "->", " ", "All"}], ",", "\n", "      ", 
-          RowBox[{"PlotStyle", " ", "->", " ", "Thick"}], ",", "\n", "      ", 
-          RowBox[{"Epilog", " ", "->", " ", 
-           RowBox[{"{", "\n", "        ", 
-            RowBox[{"Thick", ",", " ", 
-             RowBox[{"Line", "[", 
-              RowBox[{"{", 
-               RowBox[{
-                RowBox[{"{", 
-                 RowBox[{"yMin", ",", " ", "0"}], "}"}], ",", " ", 
-                RowBox[{"{", 
-                 RowBox[{"yMax", ",", " ", "0"}], "}"}]}], "}"}], "]"}], ",", 
-             "\n", "        ", 
+         RowBox[{"AxesLabel", " ", "->", " ", 
+          RowBox[{"{", 
+           RowBox[{"\"\<y\>\"", ",", " ", "\"\<y'\>\""}], "}"}]}], ",", "\n", 
+         "      ", 
+         RowBox[{"PlotLabel", " ", "->", " ", "\"\<Inciso (c)\>\""}], ",", 
+         "\n", "      ", 
+         RowBox[{"PlotRange", " ", "->", " ", "All"}], ",", "\n", "      ", 
+         RowBox[{"PlotStyle", " ", "->", " ", "Thick"}], ",", "\n", "      ", 
+         RowBox[{"Epilog", " ", "->", " ", 
+          RowBox[{"{", "\n", "        ", 
+           RowBox[{"Thick", ",", " ", 
+            RowBox[{"Line", "[", 
              RowBox[{"{", 
-              RowBox[{"Red", ",", " ", 
-               RowBox[{"PointSize", "[", "Large", "]"}], ",", "\n", 
-               "         ", 
-               RowBox[{"Point", "[", 
-                RowBox[{"{", 
-                 RowBox[{
-                  RowBox[{"{", 
-                   RowBox[{"0", ",", " ", "0"}], "}"}], ",", " ", 
-                  RowBox[{"{", 
-                   RowBox[{"K", ",", " ", "0"}], "}"}]}], "}"}], "]"}]}], 
-              "}"}], ",", "\n", "        ", 
-             RowBox[{"(*", " ", 
               RowBox[{
-               RowBox[{
-                RowBox[{"Flechas", ":", " ", 
-                 RowBox[{"en", " ", 
-                  RowBox[{"(", 
-                   RowBox[{"0", ",", "K"}], ")"}]}]}], " ", "->", " ", 
-                RowBox[{"f", ">", 
-                 RowBox[{"0", " ", 
-                  RowBox[{"(", "der", ")"}]}]}]}], ",", " ", 
-               RowBox[{
+               RowBox[{"{", 
+                RowBox[{"yMin", ",", " ", "0"}], "}"}], ",", " ", 
+               RowBox[{"{", 
+                RowBox[{"yMax", ",", " ", "0"}], "}"}]}], "}"}], "]"}], ",", 
+            "\n", "        ", 
+            RowBox[{"{", 
+             RowBox[{"Red", ",", " ", 
+              RowBox[{"PointSize", "[", "Large", "]"}], ",", "\n", 
+              "         ", 
+              RowBox[{"Point", "[", 
+               RowBox[{"{", 
+                RowBox[{
+                 RowBox[{"{", 
+                  RowBox[{"0", ",", " ", "0"}], "}"}], ",", " ", 
+                 RowBox[{"{", 
+                  RowBox[{"K", ",", " ", "0"}], "}"}]}], "}"}], "]"}]}], 
+             "}"}], ",", "\n", "        ", 
+            RowBox[{"(*", " ", 
+             RowBox[{
+              RowBox[{
+               RowBox[{"Flechas", ":", " ", 
                 RowBox[{"en", " ", 
                  RowBox[{"(", 
-                  RowBox[{"K", ",", "yMax"}], ")"}]}], " ", "->", " ", 
-                RowBox[{"f", "<", 
-                 RowBox[{"0", " ", 
-                  RowBox[{"(", "izq", ")"}]}]}]}]}], " ", "*)"}], "\n", 
-             "        ", 
-             RowBox[{"Arrow", "[", 
-              RowBox[{"{", 
-               RowBox[{
-                RowBox[{"{", 
-                 RowBox[{
-                  RowBox[{"0.3", " ", "K"}], ",", " ", "0"}], "}"}], ",", " ", 
-                RowBox[{"{", 
-                 RowBox[{
-                  RowBox[{"0.5", " ", "K"}], ",", " ", "0"}], "}"}]}], "}"}], 
-              "]"}], ",", "\n", "        ", 
-             RowBox[{"Arrow", "[", 
-              RowBox[{"{", 
-               RowBox[{
-                RowBox[{"{", 
-                 RowBox[{
-                  RowBox[{"1.3", " ", "K"}], ",", " ", "0"}], "}"}], ",", " ", 
-                RowBox[{"{", 
-                 RowBox[{
-                  RowBox[{"1.1", " ", "K"}], ",", " ", "0"}], "}"}]}], "}"}], 
-              "]"}]}], "\n", "      ", "}"}]}], ",", "\n", "      ", 
-          RowBox[{"ImageSize", " ", "->", " ", "400"}]}], "\n", "    ", 
-         "]"}]}], ";", "\n", "    ", "\n", "    ", 
-       RowBox[{
-       "(*", "***********************************************************)"}],
-        "\n", "    ", 
-       RowBox[{"(*", 
-        RowBox[{
-         RowBox[{
-          RowBox[{" ", "2", ")"}], " ", "Campo", " ", "de", " ", "pendientes",
-           " ", 
-          RowBox[{"(", 
-           RowBox[{"y", ",", "t"}], ")"}]}], " ", "+", " ", 
-         RowBox[{"trayectoria", " ", "roja"}]}], "          ", "*)"}], "\n", 
-       "    ", 
-       RowBox[{
-       "(*", "***********************************************************)"}],
-        "\n", "    ", 
-       RowBox[{"dirField", " ", "=", " ", 
-        RowBox[{"StreamPlot", "[", "\n", "      ", 
-         RowBox[{
-          RowBox[{"{", 
-           RowBox[{
-            RowBox[{"f", "[", "y", "]"}], ",", " ", "1"}], "}"}], ",", "\n", 
-          "      ", 
-          RowBox[{"{", 
-           RowBox[{"y", ",", " ", "yMin", ",", " ", "yMax"}], "}"}], ",", " ", 
-          RowBox[{"{", 
-           RowBox[{"t", ",", " ", 
-            RowBox[{"-", "0.2"}], ",", " ", "tMax"}], "}"}], ",", "\n", 
-          "      ", 
-          RowBox[{"StreamStyle", " ", "->", " ", 
-           RowBox[{"Arrowheads", "[", "Small", "]"}]}], ",", "\n", "      ", 
-          RowBox[{"Axes", " ", "->", " ", "True"}], ",", " ", 
-          RowBox[{"Frame", " ", "->", " ", "False"}], ",", "\n", "      ", 
-          RowBox[{"AxesLabel", " ", "->", " ", 
-           RowBox[{"{", 
-            RowBox[{"\"\<y\>\"", ",", " ", "\"\<t\>\""}], "}"}]}], ",", "\n", 
-          "      ", 
-          RowBox[{
-          "PlotLabel", " ", "->", 
-           " ", "\"\<Campo de pendientes (y horizontal, t vertical)\>\""}], ",",
-           "\n", "      ", 
-          RowBox[{"PlotRange", " ", "->", " ", "All"}], ",", "\n", "      ", 
-          RowBox[{"ImageSize", " ", "->", " ", "400"}]}], "\n", "    ", 
-         "]"}]}], ";", "\n", "    ", "\n", "    ", 
-       RowBox[{"(*", " ", 
-        RowBox[{
-         RowBox[{"Resolvemos", " ", "la", " ", "ODE", " ", "con", " ", "y", 
-          RowBox[{"(", "0", ")"}]}], "=", "y0"}], " ", "*)"}], "\n", "    ", 
-       RowBox[{"sol", " ", "=", " ", 
-        RowBox[{"First", "@", 
-         RowBox[{"NDSolve", "[", "\n", "      ", 
-          RowBox[{
-           RowBox[{"{", 
-            RowBox[{
-             RowBox[{
+                  RowBox[{"0", ",", "K"}], ")"}]}]}], " ", "->", " ", 
+               RowBox[{"f", ">", 
+                RowBox[{"0", " ", 
+                 RowBox[{"(", "der", ")"}]}]}]}], ",", " ", 
               RowBox[{
-               RowBox[{"y", "'"}], "[", "t", "]"}], " ", "==", " ", 
-              RowBox[{"f", "[", 
-               RowBox[{"y", "[", "t", "]"}], "]"}]}], ",", " ", 
-             RowBox[{
-              RowBox[{"y", "[", "0", "]"}], " ", "==", " ", "y0"}]}], "}"}], ",",
-            "\n", "      ", "y", ",", " ", 
-           RowBox[{"{", 
-            RowBox[{"t", ",", " ", "0", ",", " ", "tMax"}], "}"}]}], "\n", 
-          "    ", "]"}]}]}], ";", "\n", "    ", "\n", "    ", 
-       RowBox[{"(*", " ", 
-        RowBox[{"Graficamos", " ", "la", " ", 
-         RowBox[{"trayectoria", ":", " ", 
-          RowBox[{"(", " ", 
-           RowBox[{
-            RowBox[{"y", 
-             RowBox[{"(", "t", ")"}]}], ",", " ", "t"}], " ", ")"}]}]}], " ", 
-        "*)"}], "\n", "    ", 
-       RowBox[{"solCurve", " ", "=", " ", 
-        RowBox[{"ParametricPlot", "[", "\n", "      ", 
-         RowBox[{
-          RowBox[{"Evaluate", "[", 
-           RowBox[{"{", 
-            RowBox[{
-             RowBox[{
-              RowBox[{"y", "[", "t", "]"}], " ", "/.", " ", "sol"}], ",", " ",
-              "t"}], "}"}], "]"}], ",", "\n", "      ", 
-          RowBox[{"{", 
-           RowBox[{"t", ",", " ", "0", ",", " ", "tMax"}], "}"}], ",", "\n", 
-          "      ", 
-          RowBox[{"PlotStyle", " ", "->", " ", 
-           RowBox[{"{", 
-            RowBox[{"Thick", ",", " ", "Red"}], "}"}]}], ",", "\n", "      ", 
-          RowBox[{"Axes", " ", "->", " ", "None"}], ",", "\n", "      ", 
-          RowBox[{"PlotRange", " ", "->", " ", "All"}]}], "\n", "    ", 
-         "]"}]}], ";", "\n", "    ", "\n", "    ", 
-       RowBox[{"GraphicsColumn", "[", "\n", "      ", 
+               RowBox[{"en", " ", 
+                RowBox[{"(", 
+                 RowBox[{"K", ",", "yMax"}], ")"}]}], " ", "->", " ", 
+               RowBox[{"f", "<", 
+                RowBox[{"0", " ", 
+                 RowBox[{"(", "izq", ")"}]}]}]}]}], " ", "*)"}], "\n", 
+            "        ", 
+            RowBox[{"Arrow", "[", 
+             RowBox[{"{", 
+              RowBox[{
+               RowBox[{"{", 
+                RowBox[{
+                 RowBox[{"0.3", " ", "K"}], ",", " ", "0"}], "}"}], ",", " ", 
+               RowBox[{"{", 
+                RowBox[{
+                 RowBox[{"0.5", " ", "K"}], ",", " ", "0"}], "}"}]}], "}"}], 
+             "]"}], ",", "\n", "        ", 
+            RowBox[{"Arrow", "[", 
+             RowBox[{"{", 
+              RowBox[{
+               RowBox[{"{", 
+                RowBox[{
+                 RowBox[{"1.3", " ", "K"}], ",", " ", "0"}], "}"}], ",", " ", 
+               RowBox[{"{", 
+                RowBox[{
+                 RowBox[{"1.1", " ", "K"}], ",", " ", "0"}], "}"}]}], "}"}], 
+             "]"}]}], "\n", "      ", "}"}]}], ",", "\n", "      ", 
+         RowBox[{"ImageSize", " ", "->", " ", "400"}]}], "\n", "    ", 
+        "]"}]}], ";", "\n", "    ", "\n", "    ", 
+      RowBox[{
+      "(*", "***********************************************************)"}], 
+      "\n", "    ", 
+      RowBox[{"(*", 
+       RowBox[{
         RowBox[{
-         RowBox[{"{", "\n", "        ", 
-          RowBox[{"plotYprime", ",", "\n", "        ", 
-           RowBox[{"Show", "[", "\n", "          ", 
+         RowBox[{" ", "2", ")"}], " ", "Campo", " ", "de", " ", "pendientes", 
+         " ", 
+         RowBox[{"(", 
+          RowBox[{"y", ",", "t"}], ")"}]}], " ", "+", " ", 
+        RowBox[{"trayectoria", " ", "roja"}]}], "          ", "*)"}], "\n", 
+      "    ", 
+      RowBox[{
+      "(*", "***********************************************************)"}], 
+      "\n", "    ", 
+      RowBox[{"dirField", " ", "=", " ", 
+       RowBox[{"StreamPlot", "[", "\n", "      ", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"f", "[", "y", "]"}], ",", " ", "1"}], "}"}], ",", "\n", 
+         "      ", 
+         RowBox[{"{", 
+          RowBox[{"y", ",", " ", "yMin", ",", " ", "yMax"}], "}"}], ",", " ", 
+         RowBox[{"{", 
+          RowBox[{"t", ",", " ", 
+           RowBox[{"-", "0.2"}], ",", " ", "tMax"}], "}"}], ",", "\n", 
+         "      ", 
+         RowBox[{"StreamStyle", " ", "->", " ", 
+          RowBox[{"Arrowheads", "[", "Small", "]"}]}], ",", "\n", "      ", 
+         RowBox[{"Axes", " ", "->", " ", "True"}], ",", " ", 
+         RowBox[{"Frame", " ", "->", " ", "False"}], ",", "\n", "      ", 
+         RowBox[{"AxesLabel", " ", "->", " ", 
+          RowBox[{"{", 
+           RowBox[{"\"\<y\>\"", ",", " ", "\"\<t\>\""}], "}"}]}], ",", "\n", 
+         "      ", 
+         RowBox[{
+         "PlotLabel", " ", "->", 
+          " ", "\"\<Campo de pendientes (y horizontal, t vertical)\>\""}], ",",
+          "\n", "      ", 
+         RowBox[{"PlotRange", " ", "->", " ", "All"}], ",", "\n", "      ", 
+         RowBox[{"ImageSize", " ", "->", " ", "400"}]}], "\n", "    ", 
+        "]"}]}], ";", "\n", "    ", "\n", "    ", 
+      RowBox[{"(*", " ", 
+       RowBox[{
+        RowBox[{"Resolvemos", " ", "la", " ", "ODE", " ", "con", " ", "y", 
+         RowBox[{"(", "0", ")"}]}], "=", "y0"}], " ", "*)"}], "\n", "    ", 
+      RowBox[{"sol", " ", "=", " ", 
+       RowBox[{"First", "@", 
+        RowBox[{"NDSolve", "[", "\n", "      ", 
+         RowBox[{
+          RowBox[{"{", 
+           RowBox[{
             RowBox[{
-            "dirField", ",", "\n", "          ", "solCurve", ",", "\n", 
-             "          ", 
-             RowBox[{"PlotRange", " ", "->", " ", "All"}], ",", "\n", 
-             "          ", 
-             RowBox[{"PlotLabel", " ", "->", " ", 
-              RowBox[{"\"\<Trayectoria roja, y(0) = \>\"", " ", "<>", " ", 
-               RowBox[{"ToString", "[", "y0", "]"}]}]}]}], "\n", "        ", 
-            "]"}]}], "\n", "      ", "}"}], ",", "\n", "      ", 
-         RowBox[{"Alignment", " ", "->", " ", "Center"}]}], "\n", "    ", 
-        "]"}]}]}], "\n", "  ", "]"}], ",", "\n", "  ", "\n", "  ", 
-    RowBox[{"{", 
-     RowBox[{
-      RowBox[{"{", 
-       RowBox[{"r", ",", " ", "1", ",", " ", "\"\<r\>\""}], "}"}], ",", " ", 
-      "0.1", ",", " ", "5", ",", " ", 
-      RowBox[{"Appearance", " ", "->", " ", "\"\<Labeled\>\""}]}], "}"}], ",",
-     "\n", "  ", 
-    RowBox[{"{", 
-     RowBox[{
-      RowBox[{"{", 
-       RowBox[{"K", ",", " ", "2", ",", " ", "\"\<K\>\""}], "}"}], ",", " ", 
-      "0.1", ",", " ", "5", ",", " ", 
-      RowBox[{"Appearance", " ", "->", " ", "\"\<Labeled\>\""}]}], "}"}], ",",
-     "\n", "  ", 
-    RowBox[{"{", 
-     RowBox[{
-      RowBox[{"{", 
-       RowBox[{"A", ",", " ", "0.5", ",", " ", "\"\<A\>\""}], "}"}], ",", " ",
-       "0.1", ",", " ", "5", ",", " ", 
-      RowBox[{"Appearance", " ", "->", " ", "\"\<Labeled\>\""}]}], "}"}], ",",
-     "\n", "  ", 
-    RowBox[{"{", 
-     RowBox[{
-      RowBox[{"{", 
-       RowBox[{"y0", ",", " ", "1", ",", " ", "\"\<y(0)\>\""}], "}"}], ",", 
-      " ", "0", ",", " ", "5", ",", " ", 
-      RowBox[{"Appearance", " ", "->", " ", "\"\<Labeled\>\""}]}], "}"}]}], 
-   "\n", "]"}], "\n"}]], "Code",
+             RowBox[{
+              RowBox[{"y", "'"}], "[", "t", "]"}], " ", "==", " ", 
+             RowBox[{"f", "[", 
+              RowBox[{"y", "[", "t", "]"}], "]"}]}], ",", " ", 
+            RowBox[{
+             RowBox[{"y", "[", "0", "]"}], " ", "==", " ", "y0"}]}], "}"}], ",",
+           "\n", "      ", "y", ",", " ", 
+          RowBox[{"{", 
+           RowBox[{"t", ",", " ", "0", ",", " ", "tMax"}], "}"}]}], "\n", 
+         "    ", "]"}]}]}], ";", "\n", "    ", "\n", "    ", 
+      RowBox[{"(*", " ", 
+       RowBox[{"Graficamos", " ", "la", " ", 
+        RowBox[{"trayectoria", ":", " ", 
+         RowBox[{"(", " ", 
+          RowBox[{
+           RowBox[{"y", 
+            RowBox[{"(", "t", ")"}]}], ",", " ", "t"}], " ", ")"}]}]}], " ", 
+       "*)"}], "\n", "    ", 
+      RowBox[{"solCurve", " ", "=", " ", 
+       RowBox[{"ParametricPlot", "[", "\n", "      ", 
+        RowBox[{
+         RowBox[{"Evaluate", "[", 
+          RowBox[{"{", 
+           RowBox[{
+            RowBox[{
+             RowBox[{"y", "[", "t", "]"}], " ", "/.", " ", "sol"}], ",", " ", 
+            "t"}], "}"}], "]"}], ",", "\n", "      ", 
+         RowBox[{"{", 
+          RowBox[{"t", ",", " ", "0", ",", " ", "tMax"}], "}"}], ",", "\n", 
+         "      ", 
+         RowBox[{"PlotStyle", " ", "->", " ", 
+          RowBox[{"{", 
+           RowBox[{"Thick", ",", " ", "Red"}], "}"}]}], ",", "\n", "      ", 
+         RowBox[{"Axes", " ", "->", " ", "None"}], ",", "\n", "      ", 
+         RowBox[{"PlotRange", " ", "->", " ", "All"}]}], "\n", "    ", 
+        "]"}]}], ";", "\n", "    ", "\n", "    ", 
+      RowBox[{"GraphicsColumn", "[", "\n", "      ", 
+       RowBox[{
+        RowBox[{"{", "\n", "        ", 
+         RowBox[{"plotYprime", ",", "\n", "        ", 
+          RowBox[{"Show", "[", "\n", "          ", 
+           RowBox[{
+           "dirField", ",", "\n", "          ", "solCurve", ",", "\n", 
+            "          ", 
+            RowBox[{"PlotRange", " ", "->", " ", "All"}], ",", "\n", 
+            "          ", 
+            RowBox[{"PlotLabel", " ", "->", " ", 
+             RowBox[{"\"\<Trayectoria roja, y(0) = \>\"", " ", "<>", " ", 
+              RowBox[{"ToString", "[", "y0", "]"}]}]}]}], "\n", "        ", 
+           "]"}]}], "\n", "      ", "}"}], ",", "\n", "      ", 
+        RowBox[{"Alignment", " ", "->", " ", "Center"}]}], "\n", "    ", 
+       "]"}]}]}], "\n", "  ", "]"}], ",", "\n", "  ", "\n", "  ", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"r", ",", " ", "1", ",", " ", "\"\<r\>\""}], "}"}], ",", " ", 
+     "0.1", ",", " ", "5", ",", " ", 
+     RowBox[{"Appearance", " ", "->", " ", "\"\<Labeled\>\""}]}], "}"}], ",", 
+   "\n", "  ", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"K", ",", " ", "2", ",", " ", "\"\<K\>\""}], "}"}], ",", " ", 
+     "0.1", ",", " ", "5", ",", " ", 
+     RowBox[{"Appearance", " ", "->", " ", "\"\<Labeled\>\""}]}], "}"}], ",", 
+   "\n", "  ", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"A", ",", " ", "0.5", ",", " ", "\"\<A\>\""}], "}"}], ",", " ", 
+     "0.1", ",", " ", "5", ",", " ", 
+     RowBox[{"Appearance", " ", "->", " ", "\"\<Labeled\>\""}]}], "}"}], ",", 
+   "\n", "  ", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"y0", ",", " ", "1", ",", " ", "\"\<y(0)\>\""}], "}"}], ",", 
+     " ", "0", ",", " ", "5", ",", " ", 
+     RowBox[{"Appearance", " ", "->", " ", "\"\<Labeled\>\""}]}], "}"}]}], 
+  "\n", "]"}], "\n"}], "Code",
  CellChangeTimes->{
   3.951532542597599*^9, {3.9516893000183773`*^9, 3.951689316464319*^9}, {
    3.951689365476383*^9, 3.9516893926728306`*^9}, {3.9516897081884212`*^9, 
-   3.9516897111881313`*^9}},
- CellLabel->"In[13]:=",ExpressionUUID->"4ef93806-4796-2b47-a1c2-966fc3723cfd"],
+   3.9516897111881313`*^9}, {3.9516970696918945`*^9, 
+   3.9516970707595463`*^9}, {3.951697156316986*^9, 3.951697157054367*^9}},
+ CellLabel->"In[42]:=",ExpressionUUID->"4ef93806-4796-2b47-a1c2-966fc3723cfd"],
 
 Cell[BoxData[
  TagBox[
   StyleBox[
-   DynamicModuleBox[{$CellContext`A$$ = 3.25, K$$ = 0.84, $CellContext`r$$ = 
-    1, $CellContext`y0$$ = 2.05, Typeset`show$$ = True, 
+   DynamicModuleBox[{$CellContext`A$$ = 0.1, K$$ = 2, $CellContext`r$$ = 
+    1, $CellContext`y0$$ = 2.94, Typeset`show$$ = True, 
     Typeset`bookmarkList$$ = {}, Typeset`bookmarkMode$$ = "Menu", 
     Typeset`animator$$, Typeset`animvar$$ = 1, Typeset`name$$ = 
     "\"sin t\[IAcute]tulo\"", Typeset`specs$$ = {{{
@@ -11185,8 +11179,8 @@ $CellContext`sol$, $CellContext`solCurve$}, $CellContext`f$[
          3 K$$; $CellContext`plotYprime$ = Plot[
            $CellContext`f$[$CellContext`y], {$CellContext`y, \
 $CellContext`yMin$, $CellContext`yMax$}, AxesLabel -> {"y", "y'"}, PlotLabel -> 
-           "Inciso (c): y'(y) y diagrama de fases", PlotRange -> All, 
-           PlotStyle -> Thick, Epilog -> {Thick, 
+           "Inciso (c)", PlotRange -> All, PlotStyle -> Thick, 
+           Epilog -> {Thick, 
              Line[{{$CellContext`yMin$, 0}, {$CellContext`yMax$, 0}}], {Red, 
               PointSize[Large], 
               Point[{{0, 0}, {K$$, 0}}]}, 
@@ -11236,8 +11230,9 @@ $CellContext`t}], {$CellContext`t, 0, $CellContext`tMax$},
  CellChangeTimes->{
   3.9515325436080914`*^9, 3.9515625594029045`*^9, 3.9516891343955307`*^9, 
    3.951689318257105*^9, {3.951689367857706*^9, 3.9516893944675064`*^9}, 
-   3.9516897117661533`*^9},
- CellLabel->"Out[13]=",ExpressionUUID->"d66fd850-d8b0-f849-9a7c-e86150c71d05"]
+   3.9516897117661533`*^9, 3.951696884601248*^9, 3.951697071409523*^9, 
+   3.951697158101536*^9},
+ CellLabel->"Out[43]=",ExpressionUUID->"d5c3d502-dd8f-684f-8995-56002305f846"]
 }, {2}]]
 },
 WindowSize->{574.8, 573.6},
@@ -11262,18 +11257,18 @@ Notebook[{
 Cell[554, 20, 363, 7, 59, "Text",ExpressionUUID->"90752305-000c-5b49-b642-6fb0ab06ff30"],
 Cell[920, 29, 354, 11, 27, "Equation",ExpressionUUID->"f93d9886-3fc1-bc48-b69c-2b967ee951f4"],
 Cell[CellGroupData[{
-Cell[1299, 44, 12084, 292, 1773, "Code",ExpressionUUID->"bcdfaaac-b093-e44c-bb05-cfc0d63849e2"],
-Cell[13386, 338, 273683, 5097, 572, "Output",ExpressionUUID->"edc4c3de-4d1c-cf45-ba4e-401276a0544f"]
+Cell[1299, 44, 11937, 290, 1794, "Code",ExpressionUUID->"bcdfaaac-b093-e44c-bb05-cfc0d63849e2"],
+Cell[13239, 336, 273664, 5096, 572, "Output",ExpressionUUID->"4b6e718b-5411-314b-84d6-732e8efa8051"]
 }, {2}]],
-Cell[287081, 5438, 308, 9, 27, "Equation",ExpressionUUID->"f33b5160-4dba-ce45-972f-40317a247757"],
+Cell[286915, 5435, 308, 9, 27, "Equation",ExpressionUUID->"f33b5160-4dba-ce45-972f-40317a247757"],
 Cell[CellGroupData[{
-Cell[287414, 5451, 9281, 230, 1584, "Code",ExpressionUUID->"9c5dd7c1-3819-124a-9cc7-1c0f6955ed73"],
-Cell[296698, 5683, 265795, 5178, 572, "Output",ExpressionUUID->"57aafe46-7b5c-8b4f-a292-ab2808d32257"]
+Cell[287248, 5448, 9142, 228, 1605, "Code",ExpressionUUID->"9c5dd7c1-3819-124a-9cc7-1c0f6955ed73"],
+Cell[296393, 5678, 265809, 5178, 572, "Output",ExpressionUUID->"ad5a18a9-926d-0248-b3a0-99aa5ab49b9f"]
 }, {2}]],
-Cell[562505, 10864, 366, 11, 45, "Equation",ExpressionUUID->"399b0ed6-3702-0c4b-b2a4-aa92438d5d2f"],
+Cell[562214, 10859, 366, 11, 45, "Equation",ExpressionUUID->"399b0ed6-3702-0c4b-b2a4-aa92438d5d2f"],
 Cell[CellGroupData[{
-Cell[562896, 10879, 11607, 268, 1710, "Code",ExpressionUUID->"4ef93806-4796-2b47-a1c2-966fc3723cfd"],
-Cell[574506, 11149, 4917, 90, 625, "Output",ExpressionUUID->"d66fd850-d8b0-f849-9a7c-e86150c71d05"]
+Cell[562605, 10874, 11447, 267, 1731, "Code",ExpressionUUID->"4ef93806-4796-2b47-a1c2-966fc3723cfd"],
+Cell[574055, 11143, 4956, 91, 625, "Output",ExpressionUUID->"d5c3d502-dd8f-684f-8995-56002305f846"]
 }, {2}]]
 }
 ]
