@@ -1,0 +1,1140 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 14.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     50463,       1132]
+NotebookOptionsPosition[     49908,       1113]
+NotebookOutlinePosition[     50378,       1131]
+CellTagsIndexPosition[     50335,       1128]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell[BoxData[
+ RowBox[{"Manipulate", "[", "\n", "  ", 
+  RowBox[{
+   RowBox[{"Module", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"m", ",", " ", "delta", ",", " ", "tau"}], "}"}], ",", "\n", 
+     "    ", 
+     RowBox[{"(*", " ", 
+      RowBox[{
+       RowBox[{
+       "Construimos", " ", "la", " ", "matriz", " ", "y", " ", "calculamos", " ",
+         "Delta"}], ",", " ", "Tau"}], " ", "*)"}], "\n", "    ", 
+     RowBox[{
+      RowBox[{"m", " ", "=", " ", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{"a1", ",", " ", "b1"}], "}"}], ",", " ", 
+         RowBox[{"{", 
+          RowBox[{"a2", ",", " ", "b2"}], "}"}]}], "}"}]}], ";", "\n", "    ", 
+      RowBox[{"delta", " ", "=", " ", 
+       RowBox[{
+        RowBox[{"a1", " ", "b2"}], " ", "-", " ", 
+        RowBox[{"a2", " ", "b1"}]}]}], ";", "\n", "    ", 
+      RowBox[{"tau", "   ", "=", " ", 
+       RowBox[{"a1", " ", "+", " ", "b2"}]}], ";", "\n", "\n", "    ", 
+      RowBox[{"(*", " ", 
+       RowBox[{
+        RowBox[{
+        "===", "===", "===", "===", "===", "===", "===", "===", "==="}], 
+        "="}], " ", "*)"}], "\n", "    ", 
+      RowBox[{"(*", 
+       RowBox[{
+        RowBox[{" ", "1", ")"}], " ", "Gr\[AAcute]fica", " ", "en", " ", 
+        RowBox[{"(", 
+         RowBox[{"x", ",", "y"}], ")"}]}], "            ", "*)"}], "\n", 
+      "    ", 
+      RowBox[{"(*", " ", 
+       RowBox[{
+        RowBox[{
+        "===", "===", "===", "===", "===", "===", "===", "===", "==="}], 
+        "="}], " ", "*)"}], "\n", "    ", 
+      RowBox[{"g1", " ", "=", " ", 
+       RowBox[{"Show", "[", "\n", "      ", 
+        RowBox[{
+         RowBox[{"VectorPlot", "[", "\n", "        ", 
+          RowBox[{
+           RowBox[{"m", " ", ".", " ", 
+            RowBox[{"{", 
+             RowBox[{"x", ",", " ", "y"}], "}"}]}], ",", "\n", "        ", 
+           RowBox[{"{", 
+            RowBox[{"x", ",", " ", 
+             RowBox[{"-", "5"}], ",", " ", "5"}], "}"}], ",", " ", 
+           RowBox[{"{", 
+            RowBox[{"y", ",", " ", 
+             RowBox[{"-", "5"}], ",", " ", "5"}], "}"}], ",", "\n", 
+           "        ", 
+           RowBox[{"StreamPoints", " ", "->", " ", 
+            RowBox[{"{", 
+             RowBox[{"{", 
+              RowBox[{
+              "pt1", ",", " ", "pt2", ",", " ", "pt3", ",", " ", "pt4"}], 
+              "}"}], "}"}]}], ",", "\n", "        ", 
+           RowBox[{"StreamStyle", " ", "->", " ", 
+            RowBox[{"{", 
+             RowBox[{"Red", ",", " ", "Thick"}], "}"}]}], ",", "\n", 
+           "        ", 
+           RowBox[{"ImageSize", " ", "->", " ", "300"}]}], "\n", "      ", 
+          "]"}], ",", "\n", "      ", 
+         RowBox[{"Graphics", "[", 
+          RowBox[{"{", "\n", "        ", 
+           RowBox[{"Thick", ",", " ", "Orange", ",", "\n", "        ", 
+            RowBox[{"Map", "[", "\n", "          ", 
+             RowBox[{
+              RowBox[{
+               RowBox[{"Line", "[", 
+                RowBox[{"{", 
+                 RowBox[{
+                  RowBox[{
+                   RowBox[{"-", "100"}], " ", "#"}], ",", " ", 
+                  RowBox[{"100", " ", "#"}]}], "}"}], "]"}], " ", "&"}], ",", 
+              "\n", "          ", 
+              RowBox[{"Select", "[", 
+               RowBox[{
+                RowBox[{"Eigenvectors", "[", "m", "]"}], ",", " ", 
+                RowBox[{
+                 RowBox[{"(", 
+                  RowBox[{
+                   RowBox[{
+                    RowBox[{"Im", "[", 
+                    RowBox[{"#", "[", 
+                    RowBox[{"[", "1", "]"}], "]"}], "]"}], " ", "==", " ", 
+                    "0"}], " ", "&&", " ", 
+                   RowBox[{
+                    RowBox[{"Im", "[", 
+                    RowBox[{"#", "[", 
+                    RowBox[{"[", "2", "]"}], "]"}], "]"}], " ", "==", " ", 
+                    "0"}]}], ")"}], " ", "&"}]}], "]"}]}], "\n", "        ", 
+             "]"}]}], "\n", "      ", "}"}], "]"}], ",", "\n", "      ", 
+         RowBox[{"FrameLabel", " ", "->", " ", 
+          RowBox[{"{", 
+           RowBox[{"\"\<x\>\"", ",", " ", "\"\<y\>\""}], "}"}]}], ",", "\n", 
+         "      ", 
+         RowBox[{"PlotLabel", " ", "->", "\n", "        ", 
+          RowBox[{"Row", "[", 
+           RowBox[{"{", "\n", "          ", 
+            RowBox[{
+             RowBox[{"Column", "[", 
+              RowBox[{"{", "\n", "            ", 
+               RowBox[{"Row", "[", 
+                RowBox[{"{", "\n", "              ", 
+                 RowBox[{
+                  RowBox[{"Column", "[", 
+                   RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"Style", "[", 
+                    RowBox[{"\"\<x\:0307\>\"", ",", " ", "Italic"}], "]"}], ",",
+                     " ", 
+                    RowBox[{"Style", "[", 
+                    RowBox[{"\"\<y\:0307\>\"", ",", " ", "Italic"}], "]"}]}], 
+                    "}"}], "]"}], ",", "\n", "              ", 
+                  RowBox[{"Column", "[", 
+                   RowBox[{"{", 
+                    RowBox[{"\"\< = \>\"", ",", " ", "\"\< = \>\""}], "}"}], 
+                   "]"}], ",", "\n", "              ", 
+                  RowBox[{
+                   RowBox[{"TableForm", "[", 
+                    RowBox[{"m", " ", ".", " ", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"Style", "[", 
+                    RowBox[{"\"\<x\>\"", ",", " ", "Italic"}], "]"}], ",", 
+                    " ", 
+                    RowBox[{"Style", "[", 
+                    RowBox[{"\"\<y\>\"", ",", " ", "Italic"}], "]"}]}], 
+                    "}"}]}], "]"}], " ", "//", " ", "N"}]}], "\n", 
+                 "            ", "}"}], "]"}], "\n", "          ", "}"}], 
+              "]"}], ",", "\n", "          ", "\"\<  \>\"", ",", "\n", 
+             "          ", 
+             RowBox[{"Column", "[", 
+              RowBox[{"{", "\n", "            ", 
+               RowBox[{"\"\<Eigenvalores:\>\"", ",", "\n", "            ", 
+                RowBox[{"NumberForm", "[", 
+                 RowBox[{
+                  RowBox[{"Chop", "@", 
+                   RowBox[{"N", "@", 
+                    RowBox[{"Eigenvalues", "[", "m", "]"}]}]}], ",", " ", 
+                  RowBox[{"{", 
+                   RowBox[{"4", ",", " ", "2"}], "}"}]}], "]"}]}], "\n", 
+               "          ", "}"}], "]"}], ",", "\n", 
+             "          ", "\"\<  \>\"", ",", "\n", "          ", 
+             RowBox[{"Column", "[", 
+              RowBox[{"{", "\n", "            ", 
+               RowBox[{"\"\<Eigenvectores:\>\"", ",", "\n", "            ", 
+                RowBox[{"NumberForm", "[", 
+                 RowBox[{
+                  RowBox[{"Chop", "@", 
+                   RowBox[{"N", "@", 
+                    RowBox[{
+                    RowBox[{"Eigenvectors", "[", "m", "]"}], "[", 
+                    RowBox[{"[", "1", "]"}], "]"}]}]}], ",", " ", 
+                  RowBox[{"{", 
+                   RowBox[{"4", ",", " ", "2"}], "}"}]}], "]"}], ",", "\n", 
+                "            ", 
+                RowBox[{"NumberForm", "[", 
+                 RowBox[{
+                  RowBox[{"Chop", "@", 
+                   RowBox[{"N", "@", 
+                    RowBox[{
+                    RowBox[{"Eigenvectors", "[", "m", "]"}], "[", 
+                    RowBox[{"[", "2", "]"}], "]"}]}]}], ",", " ", 
+                  RowBox[{"{", 
+                   RowBox[{"4", ",", " ", "2"}], "}"}]}], "]"}]}], "\n", 
+               "          ", "}"}], "]"}]}], "\n", "        ", "}"}], 
+           "]"}]}]}], "\n", "    ", "]"}]}], ";", "\n", "\n", "    ", 
+      RowBox[{"(*", " ", 
+       RowBox[{
+        RowBox[{
+        "===", "===", "===", "===", "===", "===", "===", "===", "==="}], 
+        "="}], " ", "*)"}], "\n", "    ", 
+      RowBox[{"(*", 
+       RowBox[{
+        RowBox[{" ", "2", ")"}], " ", "Gr\[AAcute]fica", " ", "en", " ", 
+        RowBox[{"(", 
+         RowBox[{"Delta", ",", " ", "Tau"}], ")"}]}], "  ", "*)"}], "\n", 
+      "    ", 
+      RowBox[{"(*", "    ", 
+       RowBox[{"con", " ", "regiones", " ", "coloreadas"}], "  ", "*)"}], 
+      "\n", "    ", 
+      RowBox[{"(*", " ", 
+       RowBox[{
+        RowBox[{
+        "===", "===", "===", "===", "===", "===", "===", "===", "==="}], 
+        "="}], " ", "*)"}], "\n", "\n", "    ", 
+      RowBox[{"(*", " ", 
+       RowBox[{
+        RowBox[{
+        "Definimos", " ", "varias", " ", "RegionPlot", " ", "superpuestas"}], 
+        ",", " ", 
+        RowBox[{"cada", " ", "una", " ", "con", " ", "color", " ", 
+         RowBox[{"claro", "."}]}]}], " ", "*)"}], "\n", "    ", 
+      RowBox[{"rSilla", " ", "=", " ", 
+       RowBox[{"RegionPlot", "[", "\n", "      ", 
+        RowBox[{
+         RowBox[{"deltaVar", " ", "<", " ", "0"}], ",", "\n", "      ", 
+         RowBox[{"{", 
+          RowBox[{"deltaVar", ",", " ", 
+           RowBox[{"-", "6"}], ",", " ", "6"}], "}"}], ",", " ", 
+         RowBox[{"{", 
+          RowBox[{"tauVar", ",", " ", 
+           RowBox[{"-", "6"}], ",", " ", "6"}], "}"}], ",", "\n", "      ", 
+         RowBox[{"PlotStyle", " ", "->", " ", "LightRed"}], ",", " ", 
+         RowBox[{"BoundaryStyle", " ", "->", " ", "None"}], ",", "\n", 
+         "      ", 
+         RowBox[{"Axes", " ", "->", " ", "True"}], ",", " ", 
+         RowBox[{"Frame", " ", "->", " ", "False"}]}], "\n", "    ", "]"}]}], 
+      ";", "\n", "    ", 
+      RowBox[{"rNodoEstable", " ", "=", " ", 
+       RowBox[{"RegionPlot", "[", "\n", "      ", 
+        RowBox[{
+         RowBox[{
+          RowBox[{"deltaVar", " ", ">", " ", "0"}], " ", "&&", " ", 
+          RowBox[{"tauVar", " ", "<", " ", "0"}], " ", "&&", " ", 
+          RowBox[{
+           RowBox[{"tauVar", "^", "2"}], " ", ">", " ", 
+           RowBox[{"4", " ", "deltaVar"}]}]}], ",", "\n", "      ", 
+         RowBox[{"{", 
+          RowBox[{"deltaVar", ",", " ", 
+           RowBox[{"-", "6"}], ",", " ", "6"}], "}"}], ",", " ", 
+         RowBox[{"{", 
+          RowBox[{"tauVar", ",", " ", 
+           RowBox[{"-", "6"}], ",", " ", "6"}], "}"}], ",", "\n", "      ", 
+         RowBox[{"PlotStyle", " ", "->", " ", "LightBlue"}], ",", " ", 
+         RowBox[{"BoundaryStyle", " ", "->", " ", "None"}]}], "\n", "    ", 
+        "]"}]}], ";", "\n", "    ", 
+      RowBox[{"rNodoInestable", " ", "=", " ", 
+       RowBox[{"RegionPlot", "[", "\n", "      ", 
+        RowBox[{
+         RowBox[{
+          RowBox[{"deltaVar", " ", ">", " ", "0"}], " ", "&&", " ", 
+          RowBox[{"tauVar", " ", ">", " ", "0"}], " ", "&&", " ", 
+          RowBox[{
+           RowBox[{"tauVar", "^", "2"}], " ", ">", " ", 
+           RowBox[{"4", " ", "deltaVar"}]}]}], ",", "\n", "      ", 
+         RowBox[{"{", 
+          RowBox[{"deltaVar", ",", " ", 
+           RowBox[{"-", "6"}], ",", " ", "6"}], "}"}], ",", " ", 
+         RowBox[{"{", 
+          RowBox[{"tauVar", ",", " ", 
+           RowBox[{"-", "6"}], ",", " ", "6"}], "}"}], ",", "\n", "      ", 
+         RowBox[{"PlotStyle", " ", "->", " ", "LightYellow"}], ",", " ", 
+         RowBox[{"BoundaryStyle", " ", "->", " ", "None"}]}], "\n", "    ", 
+        "]"}]}], ";", "\n", "    ", 
+      RowBox[{"rEspiralInest", " ", "=", " ", 
+       RowBox[{"RegionPlot", "[", "\n", "      ", 
+        RowBox[{
+         RowBox[{
+          RowBox[{"deltaVar", " ", ">", " ", "0"}], " ", "&&", " ", 
+          RowBox[{"tauVar", " ", ">", " ", "0"}], " ", "&&", " ", 
+          RowBox[{
+           RowBox[{"tauVar", "^", "2"}], " ", "<", " ", 
+           RowBox[{"4", " ", "deltaVar"}]}]}], ",", "\n", "      ", 
+         RowBox[{"{", 
+          RowBox[{"deltaVar", ",", " ", 
+           RowBox[{"-", "6"}], ",", " ", "6"}], "}"}], ",", " ", 
+         RowBox[{"{", 
+          RowBox[{"tauVar", ",", " ", 
+           RowBox[{"-", "6"}], ",", " ", "6"}], "}"}], ",", "\n", "      ", 
+         RowBox[{"PlotStyle", " ", "->", " ", "LightPurple"}], ",", " ", 
+         RowBox[{"BoundaryStyle", " ", "->", " ", "None"}]}], "\n", "    ", 
+        "]"}]}], ";", "\n", "    ", 
+      RowBox[{"rEspiralEstab", " ", "=", " ", 
+       RowBox[{"RegionPlot", "[", "\n", "      ", 
+        RowBox[{
+         RowBox[{
+          RowBox[{"deltaVar", " ", ">", " ", "0"}], " ", "&&", " ", 
+          RowBox[{"tauVar", " ", "<", " ", "0"}], " ", "&&", " ", 
+          RowBox[{
+           RowBox[{"tauVar", "^", "2"}], " ", "<", " ", 
+           RowBox[{"4", " ", "deltaVar"}]}]}], ",", "\n", "      ", 
+         RowBox[{"{", 
+          RowBox[{"deltaVar", ",", " ", 
+           RowBox[{"-", "6"}], ",", " ", "6"}], "}"}], ",", " ", 
+         RowBox[{"{", 
+          RowBox[{"tauVar", ",", " ", 
+           RowBox[{"-", "6"}], ",", " ", "6"}], "}"}], ",", "\n", "      ", 
+         RowBox[{"PlotStyle", " ", "->", " ", "LightGreen"}], ",", " ", 
+         RowBox[{"BoundaryStyle", " ", "->", " ", "None"}]}], "\n", "    ", 
+        "]"}]}], ";", "\n", "\n", "    ", 
+      RowBox[{"(*", " ", 
+       RowBox[{
+        RowBox[{
+        "Combinamos", " ", "todas", " ", "las", " ", "regiones", " ", "en", " ",
+          "un", " ", "Show"}], ",", " ", 
+        RowBox[{
+         RowBox[{"con", " ", "la", " ", "par\[AAcute]bola", " ", 
+          RowBox[{"\[Tau]", "^", "2"}]}], "=", 
+         RowBox[{"4", "\[CapitalDelta]", " ", "y", " ", "l\[IAcute]neas", " ", 
+          RowBox[{"extras", "."}]}]}]}], " ", "*)"}], "\n", "    ", 
+      RowBox[{"g2", " ", "=", " ", 
+       RowBox[{"Show", "[", "\n", "      ", 
+        RowBox[{
+        "rSilla", ",", "\n", "      ", "rNodoEstable", ",", "\n", "      ", 
+         "rNodoInestable", ",", "\n", "      ", "rEspiralInest", ",", "\n", 
+         "      ", "rEspiralEstab", ",", "\n", "\n", "      ", 
+         RowBox[{"(*", " ", 
+          RowBox[{
+           RowBox[{
+            RowBox[{"Par\[AAcute]bola", " ", "\[Tau]"}], "=", 
+            RowBox[{
+             RowBox[{"\[PlusMinus]", "2"}], " ", "sqrt", 
+             RowBox[{"(", "\[CapitalDelta]", ")"}]}]}], ",", " ", 
+           RowBox[{"\[CapitalDelta]", ">=", "0"}]}], " ", "*)"}], "\n", 
+         "      ", 
+         RowBox[{"Plot", "[", 
+          RowBox[{
+           RowBox[{"{", 
+            RowBox[{
+             RowBox[{"2", " ", 
+              RowBox[{"Sqrt", "[", "deltaVar", "]"}]}], ",", " ", 
+             RowBox[{
+              RowBox[{"-", "2"}], " ", 
+              RowBox[{"Sqrt", "[", "deltaVar", "]"}]}]}], "}"}], ",", " ", 
+           RowBox[{"{", 
+            RowBox[{"deltaVar", ",", " ", "0", ",", " ", "6"}], "}"}], ",", 
+           "\n", "        ", 
+           RowBox[{"PlotStyle", " ", "->", " ", "Black"}], ",", " ", 
+           RowBox[{"PlotRange", " ", "->", " ", "All"}]}], "\n", "      ", 
+          "]"}], ",", "\n", "      ", 
+         RowBox[{"(*", " ", 
+          RowBox[{
+           RowBox[{"L\[IAcute]neas", " ", "\[CapitalDelta]"}], "=", 
+           RowBox[{
+            RowBox[{"0", " ", "y", " ", "\[Tau]"}], "=", "0"}]}], " ", "*)"}],
+          "\n", "      ", 
+         RowBox[{"Graphics", "[", 
+          RowBox[{"{", "\n", "        ", 
+           RowBox[{"Thick", ",", " ", "Gray", ",", "\n", "        ", 
+            RowBox[{"Line", "[", 
+             RowBox[{"{", 
+              RowBox[{
+               RowBox[{"{", 
+                RowBox[{
+                 RowBox[{"-", "6"}], ",", " ", "0"}], "}"}], ",", " ", 
+               RowBox[{"{", 
+                RowBox[{"6", ",", " ", "0"}], "}"}]}], "}"}], "]"}], ",", 
+            "  ", 
+            RowBox[{"(*", " ", 
+             RowBox[{"\[Tau]", "=", "0"}], " ", "*)"}], "\n", "        ", 
+            RowBox[{"Line", "[", 
+             RowBox[{"{", 
+              RowBox[{
+               RowBox[{"{", 
+                RowBox[{"0", ",", " ", 
+                 RowBox[{"-", "6"}]}], "}"}], ",", " ", 
+               RowBox[{"{", 
+                RowBox[{"0", ",", " ", "6"}], "}"}]}], "}"}], "]"}]}], "   ", 
+           RowBox[{"(*", " ", 
+            RowBox[{"\[CapitalDelta]", "=", "0"}], " ", "*)"}], "\n", 
+           "      ", "}"}], "]"}], ",", "\n", "      ", 
+         RowBox[{"Axes", " ", "->", " ", "True"}], ",", "\n", "      ", 
+         RowBox[{"AxesLabel", " ", "->", " ", 
+          RowBox[{"{", 
+           RowBox[{"\"\<\[CapitalDelta]\>\"", ",", " ", "\"\<\[Tau]\>\""}], 
+           "}"}]}], ",", "\n", "      ", 
+         RowBox[{"PlotRange", " ", "->", " ", 
+          RowBox[{"{", 
+           RowBox[{
+            RowBox[{"{", 
+             RowBox[{
+              RowBox[{"-", "6"}], ",", " ", "6"}], "}"}], ",", " ", 
+            RowBox[{"{", 
+             RowBox[{
+              RowBox[{"-", "6"}], ",", " ", "6"}], "}"}]}], "}"}]}], ",", 
+         "\n", "      ", 
+         RowBox[{"ImageSize", " ", "->", " ", "300"}], ",", "\n", "      ", 
+         RowBox[{
+         "PlotLabel", 
+          "->", "\"\<Plano (\[CapitalDelta],\[Tau]) \\n (Determinante, Traza)\
+\>\""}], ",", "\n", "      ", 
+         RowBox[{"Epilog", " ", "->", " ", 
+          RowBox[{"{", "\n", "        ", 
+           RowBox[{
+            RowBox[{"Arrow", "[", 
+             RowBox[{"{", 
+              RowBox[{
+               RowBox[{"{", 
+                RowBox[{
+                 RowBox[{"-", "1"}], ",", " ", "3.7"}], "}"}], ",", " ", 
+               RowBox[{"{", 
+                RowBox[{"1.0", ",", "2.5"}], "}"}]}], "}"}], "]"}], ",", "\n",
+             "        ", 
+            RowBox[{"Arrow", "[", 
+             RowBox[{"{", 
+              RowBox[{
+               RowBox[{"{", 
+                RowBox[{
+                 RowBox[{"-", "2"}], ",", " ", 
+                 RowBox[{"-", "4"}]}], "}"}], ",", " ", 
+               RowBox[{"{", 
+                RowBox[{
+                 RowBox[{"-", "0.2"}], ",", " ", 
+                 RowBox[{"-", "3.0"}]}], "}"}]}], "}"}], "]"}], ",", "\n", 
+            "        ", 
+            RowBox[{"{", 
+             RowBox[{"Black", ",", "Thick", ",", " ", "Dashed", ",", " ", 
+              RowBox[{"Line", "[", 
+               RowBox[{"{", 
+                RowBox[{
+                 RowBox[{"{", 
+                  RowBox[{"0", ",", " ", 
+                   RowBox[{"-", "6"}]}], "}"}], ",", " ", 
+                 RowBox[{"{", 
+                  RowBox[{"0", ",", " ", "6"}], "}"}]}], "}"}], "]"}]}], 
+             "}"}], ",", "\n", "        ", 
+            RowBox[{"{", 
+             RowBox[{"Blue", ",", " ", "Thick", ",", " ", 
+              RowBox[{"Line", "[", 
+               RowBox[{"{", 
+                RowBox[{
+                 RowBox[{"{", 
+                  RowBox[{"0", ",", " ", "0"}], "}"}], ",", " ", 
+                 RowBox[{"{", 
+                  RowBox[{"6", ",", " ", "0"}], "}"}]}], "}"}], "]"}]}], 
+             "}"}], ",", "\n", "         ", 
+            RowBox[{"PointSize", "[", "Large", "]"}], ",", " ", "Red", ",", 
+            "\n", "        ", 
+            RowBox[{"(*", " ", 
+             RowBox[{"Punto", " ", "que", " ", "marca", " ", 
+              RowBox[{"(", 
+               RowBox[{"\[CapitalDelta]", ",", " ", "\[Tau]"}], ")"}]}], " ", 
+             "*)"}], "\n", "        ", 
+            RowBox[{"Point", "[", 
+             RowBox[{"{", 
+              RowBox[{"delta", ",", " ", "tau"}], "}"}], "]"}], ",", "\n", 
+            "\n", "        ", 
+            RowBox[{"(*", " ", 
+             RowBox[{
+              RowBox[{"Etiquetas", ".", " ", "Ajusta"}], " ", "coordenadas", " ",
+               "si", " ", 
+              RowBox[{"prefieres", "."}]}], " ", "*)"}], "\n", "        ", 
+            RowBox[{"Text", "[", 
+             RowBox[{"\"\<Puntos Silla\>\"", ",", " ", 
+              RowBox[{"{", 
+               RowBox[{
+                RowBox[{"-", "4"}], ",", " ", "2"}], "}"}]}], "]"}], ",", 
+            "\n", "        ", 
+            RowBox[{"Text", "[", 
+             RowBox[{
+              RowBox[{"Style", "[", 
+               
+               RowBox[{"\"\<\!\(\*SuperscriptBox[\(\[Tau]\), \(2\)]\)-4\
+\[CapitalDelta]=0\>\"", ",", "Bold", ",", "Black"}], "]"}], ",", " ", 
+              RowBox[{"{", 
+               RowBox[{"5", ",", " ", "3.7"}], "}"}]}], "]"}], ",", "\n", 
+            "        ", 
+            RowBox[{"Text", "[", 
+             RowBox[{"\"\<Nodos estables\>\"", ",", " ", 
+              RowBox[{"{", 
+               RowBox[{"3", ",", " ", 
+                RowBox[{"-", "5"}]}], "}"}]}], "]"}], ",", "\n", "        ", 
+            RowBox[{"Text", "[", 
+             RowBox[{"\"\<Nodos inestables\>\"", ",", " ", 
+              RowBox[{"{", 
+               RowBox[{"3", ",", " ", "5"}], "}"}]}], "]"}], ",", "\n", 
+            "        ", 
+            RowBox[{"Text", "[", 
+             RowBox[{"\"\<Espirales\\ninestables\>\"", ",", " ", 
+              RowBox[{"{", 
+               RowBox[{"4", ",", " ", "2"}], "}"}]}], "]"}], ",", "\n", 
+            "        ", 
+            RowBox[{"Text", "[", 
+             RowBox[{"\"\<Espirales\\nestables\>\"", ",", " ", 
+              RowBox[{"{", 
+               RowBox[{"4", ",", " ", 
+                RowBox[{"-", "2"}]}], "}"}]}], "]"}], ",", "\n", "        ", 
+            RowBox[{"Text", "[", 
+             RowBox[{"\"\<Puntos fijos no\\n aislados\>\"", ",", " ", 
+              RowBox[{"{", 
+               RowBox[{
+                RowBox[{"-", "2"}], ",", " ", 
+                RowBox[{"-", "4.5"}]}], "}"}]}], "]"}], ",", "\n", "        ", 
+            RowBox[{"Text", "[", 
+             RowBox[{"\"\<Nodos\\ndegenerados\>\"", ",", " ", 
+              RowBox[{"{", 
+               RowBox[{
+                RowBox[{"-", "2"}], ",", " ", "4.5"}], "}"}]}], "]"}], ",", 
+            "\n", "        ", 
+            RowBox[{"Text", "[", 
+             RowBox[{"\"\<\[OAcute] estrellas\>\"", ",", " ", 
+              RowBox[{"{", 
+               RowBox[{
+                RowBox[{"-", "2"}], ",", " ", "3.5"}], "}"}]}], "]"}], ",", 
+            "\n", "        ", 
+            RowBox[{"Text", "[", 
+             RowBox[{"\"\<Centros\>\"", ",", " ", 
+              RowBox[{"{", 
+               RowBox[{"3", ",", " ", "0.5"}], "}"}]}], "]"}]}], "\n", 
+           "      ", "}"}]}]}], "\n", "    ", "]"}]}], ";", "\n", "\n", 
+      "    ", 
+      RowBox[{"(*", " ", 
+       RowBox[{
+       "Retornamos", " ", "ambas", " ", "gr\[AAcute]ficas", " ", "en", " ", 
+        "una", " ", "fila"}], " ", "*)"}], "\n", "    ", 
+      RowBox[{"Row", "[", 
+       RowBox[{"{", 
+        RowBox[{"g1", ",", " ", "g2"}], "}"}], "]"}]}]}], "\n", "  ", "]"}], ",",
+    "\n", "\n", "  ", 
+   RowBox[{"(*", " ", 
+    RowBox[{
+     RowBox[{
+     "===", "===", "===", "===", "===", "===", "===", "===", "===", "===", "===",
+       "===", "==="}], "="}], " ", "*)"}], "\n", "  ", 
+   RowBox[{"(*", " ", 
+    RowBox[{
+     RowBox[{"CONTROLES", " ", 
+      RowBox[{"(", "SLIDERS", ")"}], " ", "PARA", " ", "a1"}], ",", " ", "b1",
+      ",", " ", "a2", ",", " ", "b2"}], "  ", "*)"}], "\n", "  ", 
+   RowBox[{"(*", " ", 
+    RowBox[{
+     RowBox[{
+     "===", "===", "===", "===", "===", "===", "===", "===", "===", "===", "===",
+       "===", "==="}], "="}], " ", "*)"}], "\n", "  ", 
+   RowBox[{"Style", "[", 
+    RowBox[{"\"\<x\:0307 = a\:2081 x + b\:2081 y\>\"", ",", " ", "Bold", ",", 
+     " ", "18"}], "]"}], ",", "\n", "  ", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"a1", ",", " ", "0", ",", " ", "\"\<a\:2081\>\""}], "}"}], ",", 
+     " ", 
+     RowBox[{"-", "10"}], ",", " ", "10", ",", " ", 
+     RowBox[{"Appearance", " ", "->", " ", "\"\<Labeled\>\""}]}], "}"}], ",", 
+   "\n", "  ", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"b1", ",", " ", "0", ",", " ", "\"\<b\:2081\>\""}], "}"}], ",", 
+     " ", 
+     RowBox[{"-", "10"}], ",", " ", "10", ",", " ", 
+     RowBox[{"Appearance", " ", "->", " ", "\"\<Labeled\>\""}]}], "}"}], ",", 
+   "\n", "  ", "\n", "  ", 
+   RowBox[{"Style", "[", 
+    RowBox[{"\"\<y\:0307 = a\:2082 x + b\:2082 y\>\"", ",", " ", "Bold", ",", 
+     " ", "18"}], "]"}], ",", "\n", "  ", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"a2", ",", " ", "0", ",", " ", "\"\<a\:2082\>\""}], "}"}], ",", 
+     " ", 
+     RowBox[{"-", "10"}], ",", " ", "10", ",", " ", 
+     RowBox[{"Appearance", " ", "->", " ", "\"\<Labeled\>\""}]}], "}"}], ",", 
+   "\n", "  ", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"b2", ",", " ", "0", ",", " ", "\"\<b\:2082\>\""}], "}"}], ",", 
+     " ", 
+     RowBox[{"-", "10"}], ",", " ", "10", ",", " ", 
+     RowBox[{"Appearance", " ", "->", " ", "\"\<Labeled\>\""}]}], "}"}], ",", 
+   "\n", "  ", "\n", "  ", "\n", "  ", 
+   RowBox[{"(*", " ", 
+    RowBox[{
+    "Locators", " ", "para", " ", "la", " ", "1", "\.aa", " ", 
+     "gr\[AAcute]fica"}], " ", "*)"}], "\n", "  ", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"pt1", ",", " ", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"-", "4"}], ",", " ", "2"}], "}"}]}], "}"}], ",", " ", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"-", "5"}], ",", " ", 
+       RowBox[{"-", "5"}]}], "}"}], ",", " ", 
+     RowBox[{"{", 
+      RowBox[{"5", ",", " ", "5"}], "}"}], ",", " ", "Locator"}], "}"}], ",", 
+   "\n", "  ", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"pt2", ",", " ", 
+       RowBox[{"{", 
+        RowBox[{"4", ",", " ", "2"}], "}"}]}], "}"}], ",", " ", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"-", "5"}], ",", " ", 
+       RowBox[{"-", "5"}]}], "}"}], ",", " ", 
+     RowBox[{"{", 
+      RowBox[{"5", ",", " ", "5"}], "}"}], ",", " ", "Locator"}], "}"}], ",", 
+   "\n", "  ", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"pt3", ",", " ", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"-", "4"}], ",", " ", 
+         RowBox[{"-", "2"}]}], "}"}]}], "}"}], ",", " ", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"-", "5"}], ",", " ", 
+       RowBox[{"-", "5"}]}], "}"}], ",", " ", 
+     RowBox[{"{", 
+      RowBox[{"5", ",", " ", "5"}], "}"}], ",", " ", "Locator"}], "}"}], ",", 
+   "\n", "  ", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"pt4", ",", " ", 
+       RowBox[{"{", 
+        RowBox[{"4", ",", " ", 
+         RowBox[{"-", "2"}]}], "}"}]}], "}"}], ",", " ", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"-", "5"}], ",", " ", 
+       RowBox[{"-", "5"}]}], "}"}], ",", " ", 
+     RowBox[{"{", 
+      RowBox[{"5", ",", " ", "5"}], "}"}], ",", " ", "Locator"}], "}"}], ",", 
+   "\n", "\n", "  ", 
+   RowBox[{"(*", " ", 
+    RowBox[{"===", "===", "===", "===", "===", "===", "===", "===", "==="}], 
+    " ", "*)"}], "\n", "  ", 
+   RowBox[{"(*", " ", "BOTONES", " ", "*)"}], "\n", "  ", 
+   RowBox[{"(*", " ", 
+    RowBox[{"===", "===", "===", "===", "===", "===", "===", "===", "==="}], 
+    " ", "*)"}], "\n", "  ", 
+   RowBox[{"Column", "[", 
+    RowBox[{"{", "\n", "     ", 
+     RowBox[{
+      RowBox[{"Button", "[", 
+       RowBox[{"\"\<Ptos fijos no aislados inestables\>\"", ",", "\n", 
+        "      ", 
+        RowBox[{"(", 
+         RowBox[{
+          RowBox[{"a1", " ", "=", " ", "0"}], ";", " ", 
+          RowBox[{"b1", " ", "=", " ", "0"}], ";", " ", 
+          RowBox[{"a2", " ", "=", " ", "1"}], ";", " ", 
+          RowBox[{"b2", " ", "=", " ", "4"}]}], ")"}]}], "]"}], ",", "\n", 
+      "      ", 
+      RowBox[{"Button", "[", 
+       RowBox[{"\"\<Ptos fijos no aislados estables\>\"", ",", "\n", "      ", 
+        RowBox[{"(", 
+         RowBox[{
+          RowBox[{"a1", " ", "=", " ", "0"}], ";", " ", 
+          RowBox[{"b1", " ", "=", " ", "0"}], ";", " ", 
+          RowBox[{"a2", " ", "=", " ", "1"}], ";", " ", 
+          RowBox[{"b2", " ", "=", " ", 
+           RowBox[{"-", "4"}]}]}], ")"}]}], "]"}], ",", "\n", "    ", 
+      RowBox[{"Button", "[", 
+       RowBox[{"\"\<Nodo inestable\>\"", ",", "\n", "      ", 
+        RowBox[{"(", 
+         RowBox[{
+          RowBox[{"a1", " ", "=", " ", "0"}], ";", " ", 
+          RowBox[{"b1", " ", "=", " ", 
+           RowBox[{"-", "2"}]}], ";", " ", 
+          RowBox[{"a2", " ", "=", " ", "1"}], ";", " ", 
+          RowBox[{"b2", " ", "=", " ", "4"}]}], ")"}]}], "]"}], ",", "\n", 
+      "    ", 
+      RowBox[{"Button", "[", 
+       RowBox[{"\"\<Nodo estable\>\"", ",", "\n", "      ", 
+        RowBox[{"(", 
+         RowBox[{
+          RowBox[{"a1", " ", "=", " ", "0"}], ";", " ", 
+          RowBox[{"b1", " ", "=", " ", 
+           RowBox[{"-", "2"}]}], ";", " ", 
+          RowBox[{"a2", " ", "=", " ", "1"}], ";", " ", 
+          RowBox[{"b2", " ", "=", " ", 
+           RowBox[{"-", "4"}]}]}], ")"}]}], "]"}], ",", "\n", "    ", 
+      RowBox[{"Button", "[", 
+       RowBox[{"\"\<Centro\>\"", ",", "\n", "      ", 
+        RowBox[{"(", 
+         RowBox[{
+          RowBox[{"a1", " ", "=", " ", "0"}], ";", " ", 
+          RowBox[{"b1", " ", "=", " ", 
+           RowBox[{"-", "4"}]}], ";", " ", 
+          RowBox[{"a2", " ", "=", " ", "1"}], ";", " ", 
+          RowBox[{"b2", " ", "=", " ", "0"}]}], ")"}]}], "]"}], ",", "\n", 
+      "    ", 
+      RowBox[{"Button", "[", 
+       RowBox[{"\"\<Espiral inestable \>\"", ",", "\n", "      ", 
+        RowBox[{"(", 
+         RowBox[{
+          RowBox[{"a1", " ", "=", " ", "0"}], ";", " ", 
+          RowBox[{"b1", " ", "=", " ", 
+           RowBox[{"-", "5"}]}], ";", " ", 
+          RowBox[{"a2", " ", "=", " ", "1"}], ";", " ", 
+          RowBox[{"b2", " ", "=", " ", "4"}]}], ")"}]}], "]"}], ",", "\n", 
+      "    ", 
+      RowBox[{"Button", "[", 
+       RowBox[{"\"\<Espiral estable \>\"", ",", "\n", "      ", 
+        RowBox[{"(", 
+         RowBox[{
+          RowBox[{"a1", " ", "=", " ", "0"}], ";", " ", 
+          RowBox[{"b1", " ", "=", " ", 
+           RowBox[{"-", "5"}]}], ";", " ", 
+          RowBox[{"a2", " ", "=", " ", "1"}], ";", " ", 
+          RowBox[{"b2", " ", "=", " ", 
+           RowBox[{"-", "4"}]}]}], ")"}]}], "]"}], ",", "\n", "    ", 
+      RowBox[{"Button", "[", 
+       RowBox[{"\"\<Estrella inestable\>\"", ",", "\n", "      ", 
+        RowBox[{"(", 
+         RowBox[{
+          RowBox[{"a1", " ", "=", " ", "2"}], ";", " ", 
+          RowBox[{"b1", " ", "=", " ", "0"}], ";", " ", 
+          RowBox[{"a2", " ", "=", " ", "0"}], ";", " ", 
+          RowBox[{"b2", " ", "=", " ", "2"}]}], ")"}]}], "]"}], ",", "\n", 
+      "    ", 
+      RowBox[{"Button", "[", 
+       RowBox[{"\"\<Estrella estable\>\"", ",", "\n", "      ", 
+        RowBox[{"(", 
+         RowBox[{
+          RowBox[{"a1", " ", "=", " ", 
+           RowBox[{"-", "2"}]}], ";", " ", 
+          RowBox[{"b1", " ", "=", " ", "0"}], ";", " ", 
+          RowBox[{"a2", " ", "=", " ", "0"}], ";", " ", 
+          RowBox[{"b2", " ", "=", " ", 
+           RowBox[{"-", "2"}]}]}], ")"}]}], "]"}], ",", "\n", "    ", 
+      RowBox[{"Button", "[", 
+       RowBox[{"\"\<Nodo degenerado estable\>\"", ",", "\n", "      ", 
+        RowBox[{"(", 
+         RowBox[{
+          RowBox[{"a1", " ", "=", " ", "0"}], ";", " ", 
+          RowBox[{"b1", " ", "=", " ", 
+           RowBox[{"-", "4"}]}], ";", " ", 
+          RowBox[{"a2", " ", "=", " ", "1"}], ";", " ", 
+          RowBox[{"b2", " ", "=", " ", "4"}]}], ")"}]}], "]"}], ",", "\n", 
+      "    ", 
+      RowBox[{"Button", "[", 
+       RowBox[{"\"\<Nodo degenerado inestable\>\"", ",", "\n", "      ", 
+        RowBox[{"(", 
+         RowBox[{
+          RowBox[{"a1", " ", "=", " ", "0"}], ";", " ", 
+          RowBox[{"b1", " ", "=", " ", 
+           RowBox[{"-", "4"}]}], ";", " ", 
+          RowBox[{"a2", " ", "=", " ", "1"}], ";", " ", 
+          RowBox[{"b2", " ", "=", " ", 
+           RowBox[{"-", "4"}]}]}], ")"}]}], "]"}], ",", "\n", "    ", 
+      RowBox[{"Button", "[", 
+       RowBox[{"\"\<Punto Silla\>\"", ",", "\n", "      ", 
+        RowBox[{"(", 
+         RowBox[{
+          RowBox[{"a1", " ", "=", " ", "0"}], ";", " ", 
+          RowBox[{"b1", " ", "=", " ", "4"}], ";", " ", 
+          RowBox[{"a2", " ", "=", " ", "1"}], ";", " ", 
+          RowBox[{"b2", " ", "=", " ", "0"}]}], ")"}]}], "]"}]}], "\n", "  ", 
+     "}"}], "]"}], ",", "\n", "  ", 
+   RowBox[{"ControlPlacement", " ", "->", " ", "Left"}], ",", "\n", "  ", 
+   RowBox[{"TrackedSymbols", " ", "->", " ", "True"}]}], "\n", "]"}]], "Code",
+ CellChangeTimes->{
+  3.951750032913864*^9, {3.9517502390734634`*^9, 3.9517502949406376`*^9}, {
+   3.9517505405586243`*^9, 3.9517505563279934`*^9}, {3.9517505919428177`*^9, 
+   3.9517506112737637`*^9}, {3.9517506439536896`*^9, 
+   3.9517506866365223`*^9}, {3.951750741485178*^9, 3.9517508245473213`*^9}, {
+   3.9517508602953854`*^9, 3.9517508628118057`*^9}, 3.9517513192318745`*^9, {
+   3.9517513744760933`*^9, 3.9517513790801315`*^9}, {3.951751466094925*^9, 
+   3.951751503094431*^9}, {3.9517515430048637`*^9, 3.951751552032955*^9}, {
+   3.951754883160597*^9, 3.951754942274294*^9}, {3.9517549749181976`*^9, 
+   3.9517550348210793`*^9}, {3.951755651457184*^9, 3.9517556528588753`*^9}, {
+   3.9517556835249767`*^9, 3.9517556837415543`*^9}, {3.951755918271555*^9, 
+   3.951755926890049*^9}, {3.951755967305559*^9, 3.9517559728327923`*^9}, {
+   3.9517560622675533`*^9, 3.951756134076195*^9}, {3.951756222062977*^9, 
+   3.9517562224398823`*^9}, {3.9517563450803623`*^9, 3.951756376096037*^9}, 
+   3.951756408241976*^9, {3.9517564763657856`*^9, 3.95175648669528*^9}, {
+   3.951756538053934*^9, 3.951756538239008*^9}, {3.951756586994272*^9, 
+   3.9517566156147423`*^9}, {3.9517566485646496`*^9, 3.951756656707983*^9}, {
+   3.9517567079991264`*^9, 3.9517567153079605`*^9}, {3.9517569553281612`*^9, 
+   3.9517569601714706`*^9}, {3.951764053274679*^9, 3.951764094842537*^9}, {
+   3.951764303729372*^9, 3.951764306553694*^9}, {3.9517644174913635`*^9, 
+   3.951764417817732*^9}, {3.951764493584093*^9, 3.951764628125799*^9}, {
+   3.9517647146803684`*^9, 3.951764716058056*^9}, {3.951764778379244*^9, 
+   3.9517647842871017`*^9}, {3.951764846257839*^9, 3.9517648641854954`*^9}, {
+   3.951764898079685*^9, 3.9517649611124535`*^9}, {3.9517650159923*^9, 
+   3.951765026954178*^9}, {3.951765097152235*^9, 3.9517651153986073`*^9}, {
+   3.9517655974660664`*^9, 3.9517656188441563`*^9}, {3.951765705557684*^9, 
+   3.951765768718113*^9}, 3.9517658459627953`*^9, 3.9517658804853935`*^9, {
+   3.9517659629078064`*^9, 3.9517660140166626`*^9}, {3.9517660824569435`*^9, 
+   3.951766108826023*^9}, {3.951766176484291*^9, 3.9517661839719906`*^9}, {
+   3.9517664112075405`*^9, 3.951766521138727*^9}, {3.951766570308693*^9, 
+   3.9517665790335903`*^9}, {3.951766617537134*^9, 3.9517666192717896`*^9}},
+ CellLabel->"In[84]:=",ExpressionUUID->"8d591588-64bb-9048-af01-9b355cacaec0"],
+
+Cell[BoxData[
+ TagBox[
+  StyleBox[
+   DynamicModuleBox[{$CellContext`a1$$ = 0, $CellContext`a2$$ = 
+    1, $CellContext`b1$$ = -4, $CellContext`b2$$ = 
+    0, $CellContext`pt1$$ = {-2.855, 
+    1.7800000000000002`}, $CellContext`pt2$$ = {4, 
+    2}, $CellContext`pt3$$ = {-4, -2}, $CellContext`pt4$$ = {4, -2}, 
+    Typeset`show$$ = True, Typeset`bookmarkList$$ = {}, 
+    Typeset`bookmarkMode$$ = "Menu", Typeset`animator$$, Typeset`animvar$$ = 
+    1, Typeset`name$$ = "\"sin t\[IAcute]tulo\"", Typeset`specs$$ = {{
+      Hold[
+       Style["x\:0307 = a\:2081 x + b\:2081 y", Bold, 18]], 
+      Manipulate`Dump`ThisIsNotAControl, ControlType -> None}, {{
+       Hold[$CellContext`a1$$], 0, "a\:2081"}, -10, 10, ControlType -> 
+      Manipulator}, {{
+       Hold[$CellContext`b1$$], 0, "b\:2081"}, -10, 10, ControlType -> 
+      Manipulator}, {
+      Hold[
+       Style["y\:0307 = a\:2082 x + b\:2082 y", Bold, 18]], 
+      Manipulate`Dump`ThisIsNotAControl, ControlType -> None}, {{
+       Hold[$CellContext`a2$$], 0, "a\:2082"}, -10, 10, ControlType -> 
+      Manipulator}, {{
+       Hold[$CellContext`b2$$], 0, "b\:2082"}, -10, 10, ControlType -> 
+      Manipulator}, {{
+       Hold[$CellContext`pt1$$], {-4, 2}}, {-5, -5}, {5, 5}, ControlType -> 
+      Locator}, {{
+       Hold[$CellContext`pt2$$], {4, 2}}, {-5, -5}, {5, 5}, ControlType -> 
+      Locator}, {{
+       Hold[$CellContext`pt3$$], {-4, -2}}, {-5, -5}, {5, 5}, ControlType -> 
+      Locator}, {{
+       Hold[$CellContext`pt4$$], {4, -2}}, {-5, -5}, {5, 5}, ControlType -> 
+      Locator}, {
+      Hold[
+       Column[{
+         Button[
+         "Ptos fijos no aislados inestables", $CellContext`a1$$ = 
+           0; $CellContext`b1$$ = 0; $CellContext`a2$$ = 1; $CellContext`b2$$ = 
+           4], 
+         Button[
+         "Ptos fijos no aislados estables", $CellContext`a1$$ = 
+           0; $CellContext`b1$$ = 0; $CellContext`a2$$ = 
+           1; $CellContext`b2$$ = -4], 
+         Button[
+         "Nodo inestable", $CellContext`a1$$ = 
+           0; $CellContext`b1$$ = -2; $CellContext`a2$$ = 
+           1; $CellContext`b2$$ = 4], 
+         Button[
+         "Nodo estable", $CellContext`a1$$ = 
+           0; $CellContext`b1$$ = -2; $CellContext`a2$$ = 
+           1; $CellContext`b2$$ = -4], 
+         Button[
+         "Centro", $CellContext`a1$$ = 
+           0; $CellContext`b1$$ = -4; $CellContext`a2$$ = 
+           1; $CellContext`b2$$ = 0], 
+         Button[
+         "Espiral inestable ", $CellContext`a1$$ = 
+           0; $CellContext`b1$$ = -5; $CellContext`a2$$ = 
+           1; $CellContext`b2$$ = 4], 
+         Button[
+         "Espiral estable ", $CellContext`a1$$ = 
+           0; $CellContext`b1$$ = -5; $CellContext`a2$$ = 
+           1; $CellContext`b2$$ = -4], 
+         Button[
+         "Estrella inestable", $CellContext`a1$$ = 2; $CellContext`b1$$ = 
+           0; $CellContext`a2$$ = 0; $CellContext`b2$$ = 2], 
+         Button[
+         "Estrella estable", $CellContext`a1$$ = -2; $CellContext`b1$$ = 
+           0; $CellContext`a2$$ = 0; $CellContext`b2$$ = -2], 
+         Button[
+         "Nodo degenerado estable", $CellContext`a1$$ = 
+           0; $CellContext`b1$$ = -4; $CellContext`a2$$ = 
+           1; $CellContext`b2$$ = 4], 
+         Button[
+         "Nodo degenerado inestable", $CellContext`a1$$ = 
+           0; $CellContext`b1$$ = -4; $CellContext`a2$$ = 
+           1; $CellContext`b2$$ = -4], 
+         Button[
+         "Punto Silla", $CellContext`a1$$ = 0; $CellContext`b1$$ = 
+           4; $CellContext`a2$$ = 1; $CellContext`b2$$ = 0]}]], 
+      Manipulate`Dump`ThisIsNotAControl, ControlType -> None}}, 
+    Typeset`size$$ = {600., {163.28149441545827`, 169.01342784101143`}}, 
+    Typeset`update$$ = 0, Typeset`initDone$$, Typeset`skipInitDone$$ = True, 
+    Typeset`keyframeActionsQ$$ = False, Typeset`keyframeList$$ = {}}, 
+    DynamicBox[Manipulate`ManipulateBoxes[
+     1, StandardForm, 
+      "Variables" :> {$CellContext`a1$$ = 0, $CellContext`a2$$ = 
+        0, $CellContext`b1$$ = 0, $CellContext`b2$$ = 
+        0, $CellContext`pt1$$ = {-4, 2}, $CellContext`pt2$$ = {4, 
+         2}, $CellContext`pt3$$ = {-4, -2}, $CellContext`pt4$$ = {4, -2}}, 
+      "ControllerVariables" :> {}, 
+      "OtherVariables" :> {
+       Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
+        Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
+        Typeset`specs$$, Typeset`size$$, Typeset`update$$, Typeset`initDone$$,
+         Typeset`skipInitDone$$, Typeset`keyframeActionsQ$$, 
+        Typeset`keyframeList$$}, "Body" :> 
+      Module[{$CellContext`m$, $CellContext`delta$, $CellContext`tau$}, \
+$CellContext`m$ = {{$CellContext`a1$$, $CellContext`b1$$}, \
+{$CellContext`a2$$, $CellContext`b2$$}}; $CellContext`delta$ = \
+$CellContext`a1$$ $CellContext`b2$$ - $CellContext`a2$$ $CellContext`b1$$; \
+$CellContext`tau$ = $CellContext`a1$$ + $CellContext`b2$$; $CellContext`g1 = 
+         Show[
+           VectorPlot[
+            
+            Dot[$CellContext`m$, {$CellContext`x, $CellContext`y}], \
+{$CellContext`x, -5, 5}, {$CellContext`y, -5, 5}, 
+            StreamPoints -> {{$CellContext`pt1$$, $CellContext`pt2$$, \
+$CellContext`pt3$$, $CellContext`pt4$$}}, StreamStyle -> {Red, Thick}, 
+            ImageSize -> 300], 
+           Graphics[{Thick, Orange, 
+             Map[Line[{(-100) #, 100 #}]& , 
+              Select[
+               Eigenvectors[$CellContext`m$], And[Im[
+                  Part[#, 1]] == 0, Im[
+                  Part[#, 2]] == 0]& ]]}], FrameLabel -> {"x", "y"}, 
+           PlotLabel -> Row[{
+              Column[{
+                Row[{
+                  Column[{
+                    Style["x\:0307", Italic], 
+                    Style["y\:0307", Italic]}], 
+                  Column[{" = ", " = "}], 
+                  N[
+                   TableForm[
+                    Dot[$CellContext`m$, {
+                    Style["x", Italic], 
+                    Style["y", Italic]}]]]}]}], "  ", 
+              Column[{"Eigenvalores:", 
+                NumberForm[
+                 Chop[
+                  N[
+                   Eigenvalues[$CellContext`m$]]], {4, 2}]}], "  ", 
+              Column[{"Eigenvectores:", 
+                NumberForm[
+                 Chop[
+                  N[
+                   Part[
+                    Eigenvectors[$CellContext`m$], 1]]], {4, 2}], 
+                NumberForm[
+                 Chop[
+                  N[
+                   Part[
+                    Eigenvectors[$CellContext`m$], 2]]], {4, 
+                 2}]}]}]]; $CellContext`rSilla = 
+         RegionPlot[$CellContext`deltaVar < 
+           0, {$CellContext`deltaVar, -6, 6}, {$CellContext`tauVar, -6, 6}, 
+           PlotStyle -> LightRed, BoundaryStyle -> None, Axes -> True, Frame -> 
+           False]; $CellContext`rNodoEstable = RegionPlot[
+           
+           And[$CellContext`deltaVar > 0, $CellContext`tauVar < 
+            0, $CellContext`tauVar^2 > 
+            4 $CellContext`deltaVar], {$CellContext`deltaVar, -6, 
+            6}, {$CellContext`tauVar, -6, 6}, PlotStyle -> LightBlue, 
+           BoundaryStyle -> None]; $CellContext`rNodoInestable = RegionPlot[
+           
+           And[$CellContext`deltaVar > 0, $CellContext`tauVar > 
+            0, $CellContext`tauVar^2 > 
+            4 $CellContext`deltaVar], {$CellContext`deltaVar, -6, 
+            6}, {$CellContext`tauVar, -6, 6}, PlotStyle -> LightYellow, 
+           BoundaryStyle -> None]; $CellContext`rEspiralInest = RegionPlot[
+           
+           And[$CellContext`deltaVar > 0, $CellContext`tauVar > 
+            0, $CellContext`tauVar^2 < 
+            4 $CellContext`deltaVar], {$CellContext`deltaVar, -6, 
+            6}, {$CellContext`tauVar, -6, 6}, PlotStyle -> LightPurple, 
+           BoundaryStyle -> None]; $CellContext`rEspiralEstab = RegionPlot[
+           
+           And[$CellContext`deltaVar > 0, $CellContext`tauVar < 
+            0, $CellContext`tauVar^2 < 
+            4 $CellContext`deltaVar], {$CellContext`deltaVar, -6, 
+            6}, {$CellContext`tauVar, -6, 6}, PlotStyle -> LightGreen, 
+           BoundaryStyle -> None]; $CellContext`g2 = 
+         Show[$CellContext`rSilla, $CellContext`rNodoEstable, \
+$CellContext`rNodoInestable, $CellContext`rEspiralInest, \
+$CellContext`rEspiralEstab, 
+           
+           Plot[{2 Sqrt[$CellContext`deltaVar], (-2) 
+             Sqrt[$CellContext`deltaVar]}, {$CellContext`deltaVar, 0, 6}, 
+            PlotStyle -> Black, PlotRange -> All], 
+           Graphics[{Thick, Gray, 
+             Line[{{-6, 0}, {6, 0}}], 
+             Line[{{0, -6}, {0, 6}}]}], Axes -> True, 
+           AxesLabel -> {"\[CapitalDelta]", "\[Tau]"}, 
+           PlotRange -> {{-6, 6}, {-6, 6}}, ImageSize -> 300, PlotLabel -> 
+           "Plano (\[CapitalDelta],\[Tau]) \n (Determinante, Traza)", Epilog -> {
+             Arrow[{{-1, 3.7}, {1., 2.5}}], 
+             Arrow[{{-2, -4}, {-0.2, -3.}}], {Black, Thick, Dashed, 
+              Line[{{0, -6}, {0, 6}}]}, {Blue, Thick, 
+              Line[{{0, 0}, {6, 0}}]}, 
+             PointSize[Large], Red, 
+             Point[{$CellContext`delta$, $CellContext`tau$}], 
+             Text["Puntos Silla", {-4, 2}], 
+             Text[
+              Style[
+              "\!\(\*SuperscriptBox[\(\[Tau]\), \(2\)]\)-4\[CapitalDelta]=0", 
+               Bold, Black], {5, 3.7}], 
+             Text["Nodos estables", {3, -5}], 
+             Text["Nodos inestables", {3, 5}], 
+             Text["Espirales\ninestables", {4, 2}], 
+             Text["Espirales\nestables", {4, -2}], 
+             Text["Puntos fijos no\n aislados", {-2, -4.5}], 
+             Text["Nodos\ndegenerados", {-2, 4.5}], 
+             Text["\[OAcute] estrellas", {-2, 3.5}], 
+             Text["Centros", {3, 0.5}]}]; 
+        Row[{$CellContext`g1, $CellContext`g2}]], "Specifications" :> {
+        Style[
+        "x\:0307 = a\:2081 x + b\:2081 y", Bold, 
+         18], {{$CellContext`a1$$, 0, "a\:2081"}, -10, 10, Appearance -> 
+         "Labeled"}, {{$CellContext`b1$$, 0, "b\:2081"}, -10, 10, Appearance -> 
+         "Labeled"}, 
+        Style[
+        "y\:0307 = a\:2082 x + b\:2082 y", Bold, 
+         18], {{$CellContext`a2$$, 0, "a\:2082"}, -10, 10, Appearance -> 
+         "Labeled"}, {{$CellContext`b2$$, 0, "b\:2082"}, -10, 10, Appearance -> 
+         "Labeled"}, {{$CellContext`pt1$$, {-4, 2}}, {-5, -5}, {5, 5}, 
+         ControlType -> Locator}, {{$CellContext`pt2$$, {4, 2}}, {-5, -5}, {5,
+          5}, ControlType -> 
+         Locator}, {{$CellContext`pt3$$, {-4, -2}}, {-5, -5}, {5, 5}, 
+         ControlType -> Locator}, {{$CellContext`pt4$$, {4, -2}}, {-5, -5}, {
+         5, 5}, ControlType -> Locator}, 
+        Column[{
+          Button[
+          "Ptos fijos no aislados inestables", $CellContext`a1$$ = 
+            0; $CellContext`b1$$ = 0; $CellContext`a2$$ = 
+            1; $CellContext`b2$$ = 4], 
+          Button[
+          "Ptos fijos no aislados estables", $CellContext`a1$$ = 
+            0; $CellContext`b1$$ = 0; $CellContext`a2$$ = 
+            1; $CellContext`b2$$ = -4], 
+          Button[
+          "Nodo inestable", $CellContext`a1$$ = 
+            0; $CellContext`b1$$ = -2; $CellContext`a2$$ = 
+            1; $CellContext`b2$$ = 4], 
+          Button[
+          "Nodo estable", $CellContext`a1$$ = 
+            0; $CellContext`b1$$ = -2; $CellContext`a2$$ = 
+            1; $CellContext`b2$$ = -4], 
+          Button[
+          "Centro", $CellContext`a1$$ = 
+            0; $CellContext`b1$$ = -4; $CellContext`a2$$ = 
+            1; $CellContext`b2$$ = 0], 
+          Button[
+          "Espiral inestable ", $CellContext`a1$$ = 
+            0; $CellContext`b1$$ = -5; $CellContext`a2$$ = 
+            1; $CellContext`b2$$ = 4], 
+          Button[
+          "Espiral estable ", $CellContext`a1$$ = 
+            0; $CellContext`b1$$ = -5; $CellContext`a2$$ = 
+            1; $CellContext`b2$$ = -4], 
+          Button[
+          "Estrella inestable", $CellContext`a1$$ = 2; $CellContext`b1$$ = 
+            0; $CellContext`a2$$ = 0; $CellContext`b2$$ = 2], 
+          Button[
+          "Estrella estable", $CellContext`a1$$ = -2; $CellContext`b1$$ = 
+            0; $CellContext`a2$$ = 0; $CellContext`b2$$ = -2], 
+          Button[
+          "Nodo degenerado estable", $CellContext`a1$$ = 
+            0; $CellContext`b1$$ = -4; $CellContext`a2$$ = 
+            1; $CellContext`b2$$ = 4], 
+          Button[
+          "Nodo degenerado inestable", $CellContext`a1$$ = 
+            0; $CellContext`b1$$ = -4; $CellContext`a2$$ = 
+            1; $CellContext`b2$$ = -4], 
+          Button[
+          "Punto Silla", $CellContext`a1$$ = 0; $CellContext`b1$$ = 
+            4; $CellContext`a2$$ = 1; $CellContext`b2$$ = 0]}]}, 
+      "Options" :> {ControlPlacement -> Left, TrackedSymbols -> True}, 
+      "DefaultOptions" :> {}],
+     ImageSizeCache->{
+      909.9171874046326, {231.66084969347418`, 237.39278311902734`}},
+     SingleEvaluation->True],
+    Deinitialization:>None,
+    DynamicModuleValues:>{},
+    SynchronousInitialization->True,
+    UndoTrackedVariables:>{Typeset`show$$, Typeset`bookmarkMode$$},
+    UnsavedVariables:>{Typeset`initDone$$},
+    UntrackedVariables:>{Typeset`size$$}], "Manipulate",
+   Deployed->True,
+   StripOnInput->False],
+  Manipulate`InterpretManipulate[1]]], "Output",
+ CellChangeTimes->{
+  3.951750033647339*^9, {3.9517502422032585`*^9, 3.9517502952967033`*^9}, {
+   3.9517505411182613`*^9, 3.951750556687559*^9}, {3.951750648153002*^9, 
+   3.9517506869942245`*^9}, {3.9517507483396873`*^9, 3.95175082489027*^9}, 
+   3.9517508648228836`*^9, 3.9517513217488327`*^9, 3.9517513797930927`*^9, 
+   3.9517514682029667`*^9, 3.9517515038571396`*^9, 3.9517515535738373`*^9, 
+   3.951754942638525*^9, {3.951754978592165*^9, 3.951754995183069*^9}, {
+   3.9517550268513927`*^9, 3.9517550351944294`*^9}, 3.95175529594471*^9, 
+   3.9517556942681465`*^9, 3.95175592903743*^9, 3.9517559746821613`*^9, 
+   3.951756075212015*^9, 3.9517561357237587`*^9, 3.9517562277398834`*^9, 
+   3.951756377716444*^9, 3.951756408837023*^9, 3.951756489115793*^9, 
+   3.9517565393101044`*^9, 3.9517566159459305`*^9, 3.9517566652607975`*^9, 
+   3.9517567182757015`*^9, 3.951756960670639*^9, 3.951764100514309*^9, 
+   3.95176430962953*^9, 3.9517644200257874`*^9, 3.951764553246876*^9, 
+   3.951764587493101*^9, 3.951764628707451*^9, 3.9517647166911545`*^9, 
+   3.951764786281414*^9, 3.95176502986491*^9, 3.951765116343153*^9, 
+   3.9517651717229023`*^9, 3.9517657200972233`*^9, 3.951765769542017*^9, 
+   3.9517658480694847`*^9, 3.95176588098246*^9, {3.951766005424246*^9, 
+   3.951766014621975*^9}, 3.9517661098754463`*^9, {3.9517661856834373`*^9, 
+   3.951766213828211*^9}, {3.951766445725891*^9, 3.9517664747965603`*^9}, {
+   3.951766511792057*^9, 3.9517665215468254`*^9}, 3.9517665706295795`*^9, 
+   3.951766619773527*^9, 3.9517667738039455`*^9, 3.951767616734913*^9, 
+   3.951910468317911*^9},
+ CellLabel->"Out[84]=",ExpressionUUID->"545c731b-c4e7-7e48-a202-43c341e88e9c"]
+}, {2}]]
+},
+WindowSize->{1152, 579.6},
+WindowMargins->{{
+  Automatic, -5.399999999999864}, {-5.399999999999977, Automatic}},
+Magnification:>1. Inherited,
+FrontEndVersion->"14.2 para Microsoft Windows (64-bit) (December 26, 2024)",
+StyleDefinitions->"Default.nb",
+ExpressionUUID->"563379a2-a4fc-c049-ba6b-444ec03f777e"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[580, 22, 34363, 782, 4857, "Code",ExpressionUUID->"8d591588-64bb-9048-af01-9b355cacaec0"],
+Cell[34946, 806, 14949, 304, 486, "Output",ExpressionUUID->"545c731b-c4e7-7e48-a202-43c341e88e9c"]
+}, {2}]]
+}
+]
+*)
+
